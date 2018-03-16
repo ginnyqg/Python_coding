@@ -50,7 +50,7 @@ python3 -m pip install --upgrade pip
 python3 -m pip install jupyter
 
 
-#import seaborn error
+#import matplotlib error
 #inside virtual env at terminal
 cd ~/.matplotlib
 nano matplotlibrc
@@ -59,3 +59,32 @@ nano matplotlibrc
 backend: TkAgg
 
 #Crtl + O to save, Crtl + X to exit
+
+
+#import seaborn error, import in terminal, not in jupyter notebook
+#cause and solution: https://github.com/jupyter/notebook/issues/2359
+# check in notebook
+
+sys.executable
+# /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6
+
+
+sys.path
+# ['',
+#  '/Library/Frameworks/Python.framework/Versions/3.6/lib/python36.zip',
+#  '/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6',
+#  '/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/lib-dynload',
+#  '/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages',
+#  '/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/IPython/extensions',
+#  '/Users/qinqingao/.ipython']
+
+
+
+#reinstall seaborn in where sys.executable is
+#in virtualenv
+# sys.executable -m pip install seaborn
+
+/Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6 -m pip install seaborn
+
+
+
