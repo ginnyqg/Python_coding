@@ -84,7 +84,7 @@ sys.path
 #in virtualenv
 # sys.executable -m pip install seaborn
 
-/Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6 -m pip install seaborn
+/Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6 -m pip install --upgrade seaborn
 
 
 
