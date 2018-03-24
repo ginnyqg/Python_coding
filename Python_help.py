@@ -87,4 +87,19 @@ sys.path
 /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6 -m pip install --upgrade seaborn
 
 
+#check GCC version
+gcc --version
+
+# Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/usr/include/c++/4.2.1
+# Apple LLVM version 9.0.0 (clang-900.0.39.2)
+# Target: x86_64-apple-darwin16.7.0
+# Thread model: posix
+# InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+#or
+
+gcc -dumpversion | cut -f1,2,3 -d.
+
+# 4.2.1
+ 
 
