@@ -102,4 +102,14 @@ gcc -dumpversion | cut -f1,2,3 -d.
 
 # 4.2.1
  
+#change dataset shape from long to wide(pivot table)
+from pandas import *
+df = pd.DataFrame(dataset_name)
+pt = pivot_table(df, values = 'value', index = ['well', 'tstamp'], columns = ['channel'], aggfunc = np.sum)
+pt.head()
+
+#export to csv
+pt.to_csv(r'.\raw_data_shushu_nodup.csv', header = True)
+
+
 
