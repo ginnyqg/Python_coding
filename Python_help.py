@@ -118,5 +118,10 @@ dataset2 = dataset1.loc[dataset1['colname'].str.startswith('abc')]
 #find unique value of a column in a dataframe
 df['colname'].unique()
 
+#find column names in df
+list(df)
+
+
+
 
 
