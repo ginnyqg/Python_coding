@@ -115,6 +115,11 @@ pt.to_csv(r'.\raw_data_shushu_nodup.csv', header = True)
 #select subset of data based on condition in a column which starts with certain string
 dataset2 = dataset1.loc[dataset1['colname'].str.startswith('abc')]
 
+#select subset of data based on condition in a column which equals a certain string
+dataset2 = dataset1.loc[dataset1['colname'] == 'abc']
+
+
+
 #find unique value of a column in a dataframe
 df['colname'].unique()
 
