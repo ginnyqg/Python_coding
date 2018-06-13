@@ -142,4 +142,9 @@ df.describe()
 #count how many records in a column
 len(df['colname'])
 
+#select subset from different columns meet conditions
+dataset1.loc[(dataset1['col1'] == 'abc State') | 
+            (dataset1['col2'] == 'abc State')]
+
+
 
