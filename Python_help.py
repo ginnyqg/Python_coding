@@ -123,6 +123,9 @@ dataset2 = dataset1.loc[dataset1['colname'] == 'abc']
 #find unique value of a column in a dataframe
 df['colname'].unique()
 
+#find unique, sorted, no NaN value of a column in a dataframe
+uniq_sort_df = sorted(df['colname'].dropna().unique())
+
 #find column names in df
 list(df)
 
