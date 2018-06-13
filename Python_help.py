@@ -109,7 +109,7 @@ pt = pivot_table(df, values = 'value', index = ['well', 'tstamp'], columns = ['c
 pt.head()
 
 #export to csv
-pt.to_csv(r'.\raw_data_shushu_nodup.csv', header = True)
+df.to_csv(r'.\raw_data_shushu_nodup.csv', header = True, index = False)
 
 
 #select subset of data based on condition in a column which starts with certain string
