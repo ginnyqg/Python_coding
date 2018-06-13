@@ -136,4 +136,7 @@ pd.set_option('display.max_columns', 500)
 #summary() in R equivalent in Python
 df.describe()
 
+#count how many records in a column
+len(df['colname'])
+
 
