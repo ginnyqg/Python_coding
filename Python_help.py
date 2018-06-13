@@ -150,6 +150,11 @@ dataset1.loc[(dataset1['col1'] == 'abc State') |
 dataset2 = dataset1.loc[(dataset1['col1'] == 'abc State') | 
             (dataset1['col2'] == 'abc State')]
 
-dataset2.index.tolist()
+drop_index = dataset2.index.tolist()
+
+#drop rows from data frame based on row index
+dataset1.drop(dataset1.index[drop_index])
+
+
 
 
