@@ -156,5 +156,5 @@ drop_index = dataset2.index.tolist()
 dataset1.drop(dataset1.index[drop_index])
 
 
-
-
+#check if a column is sorted(without NA)
+(sorted(df.colname.dropna()) == df.colname.dropna()).unique()
