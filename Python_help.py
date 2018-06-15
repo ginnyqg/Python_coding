@@ -165,5 +165,8 @@ lista.value_counts().sort_values(ascending = False)
 #space out time with dates and frequency specified
 pd.date_range('2013-08-01 00:00:00', '2017-03-06 00:00:00', freq='20min')
 
+#cartesian product, level 2 (longer list) map to level1
+index = pd.MultiIndex.from_product([lista, listb], names = ['cola', 'colb'])
+pd.DataFrame(index = index).reset_index()
 
 
