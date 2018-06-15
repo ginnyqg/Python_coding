@@ -162,3 +162,8 @@ dataset1.drop(dataset1.index[drop_index])
 #make a table of counts, sort descendingly
 lista.value_counts().sort_values(ascending = False)
 
+#space out time with dates and frequency specified
+pd.date_range('2013-08-01 00:00:00', '2017-03-06 00:00:00', freq='20min')
+
+
+
