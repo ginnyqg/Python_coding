@@ -159,15 +159,19 @@ dataset1.drop(dataset1.index[drop_index])
 #check if a column is sorted(without NA)
 (sorted(df.colname.dropna()) == df.colname.dropna()).unique()
 
+
 #make a table of counts, sort descendingly
 lista.value_counts().sort_values(ascending = False)
+
 
 #space out time with dates and frequency specified
 pd.date_range('2013-08-01 00:00:00', '2017-03-06 00:00:00', freq='20min')
 
+
 #cartesian product, level 2 (longer list) map to level1
 index = pd.MultiIndex.from_product([lista, listb], names = ['cola', 'colb'])
 pd.DataFrame(index = index).reset_index()
+
 
 #assign groups based on conditions
 conditions = [df['colname'] == 0, 
@@ -177,8 +181,18 @@ conditions = [df['colname'] == 0,
 choices = ['P3', 'P1', 'P2', 'P3']
 df['colname'] = np.select(conditions, choices)
 
+
 #convert datatype to str for columns in dataframe
 df['new_col'] = df['colA'].astype(str) + ' '+ df['colB'].astype(str) + ':' + df['colC'].astype(str) + ':00'
 df
+
+
+#convert datatype from str to datetime
+df['new_colName'] = pd.to_datetime(df['colName'])
+
+
+#left join, SQL-like
+df_new = pd.merge(df_ontheleft, df_ontheright, how = 'left', on = ['commonColA', 'commonColB'])
+
 
 
