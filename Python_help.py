@@ -169,4 +169,11 @@ pd.date_range('2013-08-01 00:00:00', '2017-03-06 00:00:00', freq='20min')
 index = pd.MultiIndex.from_product([lista, listb], names = ['cola', 'colb'])
 pd.DataFrame(index = index).reset_index()
 
+#assign groups based on conditions
+conditions = [df['colname'] == 0, 
+              df['colname'] <= 20,
+              df['colname'] <= 40,
+              df['colname'] < 60]
+choices = ['P3', 'P1', 'P2', 'P3']
+df['colname'] = np.select(conditions, choices)
 
