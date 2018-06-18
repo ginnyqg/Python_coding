@@ -195,4 +195,7 @@ df['new_colName'] = pd.to_datetime(df['colName'])
 df_new = pd.merge(df_ontheleft, df_ontheright, how = 'left', on = ['commonColA', 'commonColB'])
 
 
+#check number of NAs in each column of a dataframe
+df.isnull().sum()
+
 
