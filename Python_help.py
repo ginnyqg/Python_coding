@@ -177,3 +177,8 @@ conditions = [df['colname'] == 0,
 choices = ['P3', 'P1', 'P2', 'P3']
 df['colname'] = np.select(conditions, choices)
 
+#convert datatype to str for columns in dataframe
+df['new_col'] = df['colA'].astype(str) + ' '+ df['colB'].astype(str) + ':' + df['colC'].astype(str) + ':00'
+df
+
+
