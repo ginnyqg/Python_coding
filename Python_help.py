@@ -203,6 +203,11 @@ df.isnull().sum()
 (pd.to_datetime(max(df_fillin_interpolate['tstamp'])) - pd.to_datetime(min(df_fillin_interpolate['tstamp'])))
 
 
+#find out rows where a column doesn't have nulls
+df[df['name'].notnull()]
+
+#number of rows where a column doens't have nulls
+len(df[df['name'].notnull()])
 
 
 
