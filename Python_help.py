@@ -210,4 +210,17 @@ df[df['name'].notnull()]
 len(df[df['name'].notnull()])
 
 
+#interpolate missing value only if the gap is not too big
+https://stackoverflow.com/questions/30533021/interpolate-or-extrapolate-only-small-gaps-in-pandas-dataframe
+ 
+mask = data.copy()
+grp = ((mask.notnull() != mask.shift().notnull()).cumsum())
+grp['ones'] = 1
+for i in list('abcdefgh'):
+    mask[i] = (grp.groupby(i)['ones'].transform('count') < 5) | data[i].notnull()
+  
+  
+data.interpolate().bfill()[mask]
+
+
 
