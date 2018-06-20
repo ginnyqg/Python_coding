@@ -223,4 +223,5 @@ for i in list('abcdefgh'):
 data.interpolate().bfill()[mask]
 
 
-
+#put two dataframes side by side
+pd.concat([df1, df2], axis=1)
