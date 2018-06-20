@@ -220,8 +220,18 @@ for i in list('abcdefgh'):
     mask[i] = (grp.groupby(i)['ones'].transform('count') < 5) | data[i].notnull()
   
   
-data.interpolate().bfill()[mask]
+#interpolate all NaNs in df_a first, then back fill with the ones that need to be NaNs
+df = df_a.interpolate().bfill()
+
+#backfill according to the True False table that mask has, exclude first 3 columns
+df_interpolate_w_rule = df.iloc[:, 3:][mask == True]
+
+#put back first 3 columns together with channel value and finish the imputation, call the dataframe df_imputed
+first_3_col = df_a.iloc[:, 0:3]
+
+#put two dataframes together, side by side
+df_imputed = pd.concat([first_3_col, df_interpolate_w_rule], axis = 1)
 
 
-#put two dataframes side by side
-pd.concat([df1, df2], axis=1)
+
+
