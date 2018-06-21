@@ -131,6 +131,10 @@ uniq_sort_df = sorted(df['colname'].dropna().unique())
 #find elements in a unique list if elements starts with string 'Abc'
 [i for i in df['well'].unique() if i.startswith('Abc')]
 
+#find data set whose column names start with 'Abc'
+df[[i for i in df.columns.get_values() if i.startswith('Abc')]]
+
+
 #find column names in df
 list(df)
 
@@ -236,7 +240,6 @@ first_3_col = df_a.iloc[:, 0:3]
 
 #put two dataframes together, side by side
 df_imputed = pd.concat([first_3_col, df_interpolate_w_rule], axis = 1)
-
 
 
 
