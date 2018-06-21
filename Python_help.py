@@ -126,6 +126,9 @@ df['colname'].unique()
 #find unique, sorted, no NaN value of a column in a dataframe
 uniq_sort_df = sorted(df['colname'].dropna().unique())
 
+#find elements in a unique list if elements starts with string 'Abc'
+[i for i in df['well'].unique() if i.startswith('Abc')]
+
 #find column names in df
 list(df)
 
