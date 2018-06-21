@@ -118,6 +118,8 @@ dataset2 = dataset1.loc[dataset1['colname'].str.startswith('abc')]
 #select subset of data based on condition in a column which equals a certain string
 dataset2 = dataset1.loc[dataset1['colname'] == 'abc']
 
+#select subset of data based on location index
+df.iloc[0:28, 16:40]
 
 
 #find unique value of a column in a dataframe
