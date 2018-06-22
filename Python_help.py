@@ -241,5 +241,7 @@ first_3_col = df_a.iloc[:, 0:3]
 #put two dataframes together, side by side
 df_imputed = pd.concat([first_3_col, df_interpolate_w_rule], axis = 1)
 
+#describe statistics of a set of columns whose names start with certain string
+df[[i for i in df.columns.get_values() if i.startswith('Abc')]].dropna().describe()
 
 
