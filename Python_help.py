@@ -1,6 +1,10 @@
 #import csv
 train = pd.read_csv("directory")
 
+#when csv text in spanish, not utf-8
+df = pd.read_csv(file_path, encoding='latin-1')
+
+
 #print dim of data
 print("Training set has {0[0]} rows and {0[1]} columns".format(train.shape))
 
@@ -250,6 +254,6 @@ df[['a', 'b']]
 #create a new column that flags 1 when any of the two columns is 1
 df['flag'] = df[['a', 'b']].max(axis = 1)
 
-
-
+#convert time duration from days to hours
+df['time_down'].dt.total_seconds() / 3600
 
