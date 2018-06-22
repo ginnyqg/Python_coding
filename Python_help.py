@@ -244,4 +244,12 @@ df_imputed = pd.concat([first_3_col, df_interpolate_w_rule], axis = 1)
 #describe statistics of a set of columns whose names start with certain string
 df[[i for i in df.columns.get_values() if i.startswith('Abc')]].dropna().describe()
 
+#select several columns from the same data frame
+df[['a', 'b']]
+
+#create a new column that flags 1 when any of the two columns is 1
+df['flag'] = df[['a', 'b']].max(axis = 1)
+
+
+
 
