@@ -257,3 +257,7 @@ df['flag'] = df[['a', 'b']].max(axis = 1)
 #convert time duration from days to hours
 df['time_down'].dt.total_seconds() / 3600
 
+#extract part of string for all strings in a list
+[i[-4 : -1] for i in listA]
+
+
