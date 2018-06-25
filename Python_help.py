@@ -156,12 +156,17 @@ df.describe()
 len(df['colname'])
 
 #select subset from different columns meet conditions, | means or
-dataset1.loc[(dataset1['col1'] == 'abc State') | 
-            (dataset1['col2'] == 'abc State')]
+dataset1.loc[(dataset1['col1'] == 'abc') | 
+            (dataset1['col2'] == 'def')]
+
+
+dataset1.loc[(dataset1['col1'] == 'abc') & 
+            (dataset1['col2'] == 'def')]
+
 
 #python index of these rows whose columns meet certain conditions
-dataset2 = dataset1.loc[(dataset1['col1'] == 'abc State') | 
-            (dataset1['col2'] == 'abc State')]
+dataset2 = dataset1.loc[(dataset1['col1'] == 'abc') | 
+                        (dataset1['col2'] == 'def')]
 
 drop_index = dataset2.index.tolist()
 
