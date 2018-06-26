@@ -282,6 +282,11 @@ fig.autofmt_xdate()
 xmin, xmax = plt.gca().get_xlim()
 plt.gca().set_xticks(np.round(np.linspace(xmin, xmax, N), 2))
 
+# add vertical lines
+xcoords = [1, 2]
+for xc in xcoords:
+    plt.axvline(x=xc)
+
 #make legend
 fig.legend(['A', 'B'])
 
