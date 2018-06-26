@@ -269,17 +269,47 @@ df['time_down'].dt.total_seconds() / 3600
 df[['colA', 'colB']].drop_duplicates()
 
 
-#matplotlib
+##################################### matplotlib #####################################
+
+
 #plot y1, y2, y3 wrt x
 plt.plot(x, y1, x, y2, x, y3)
 
-#change matplotlib plot xticks
-# postion the ticks spaced out
-plt.gcf().autofmt_xdate()
+fig = plt.gcf()
 
-#show number of N ticks on the x axis
+# format the ticks, cutomize N
+fig.autofmt_xdate()
 xmin, xmax = plt.gca().get_xlim()
 plt.gca().set_xticks(np.round(np.linspace(xmin, xmax, N), 2))
 
-#increase plot size
-plt.gcf().set_size_inches(25, 15)
+#make legend
+fig.legend(['A', 'B'])
+
+#increase figure size
+fig.set_size_inches(25, 15)
+
+#add title for y axis, figure
+plot_title = 'Abc'
+plot_ylabel = 'Temperature (F)'
+
+plt.title(str(plot_title), fontsize = 35)
+plt.ylabel(plot_ylabel)
+
+
+#custom size
+SMALL_SIZE = 16
+MEDIUM_SIZE = 20
+BIGGER_SIZE = 25
+
+plt.rc('font', size = SMALL_SIZE)          # controls default text sizes
+plt.rc('axes', titlesize = BIGGER_SIZE)     # fontsize of the axes title
+plt.rc('axes', labelsize = MEDIUM_SIZE)    # fontsize of the x and y labels
+plt.rc('xtick', labelsize = SMALL_SIZE)    # fontsize of the tick labels
+plt.rc('ytick', labelsize = SMALL_SIZE)    # fontsize of the tick labels
+plt.rc('legend', fontsize = SMALL_SIZE)    # legend fontsize
+
+
+fig.savefig(filepath + str(plot_title) + '.png')      
+
+
+
