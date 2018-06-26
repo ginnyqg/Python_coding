@@ -269,3 +269,17 @@ df['time_down'].dt.total_seconds() / 3600
 df[['colA', 'colB']].drop_duplicates()
 
 
+#matplotlib
+#plot y1, y2, y3 wrt x
+plt.plot(x, y1, x, y2, x, y3)
+
+#change matplotlib plot xticks
+# postion the ticks spaced out
+plt.gcf().autofmt_xdate()
+
+#show number of N ticks on the x axis
+xmin, xmax = plt.gca().get_xlim()
+plt.gca().set_xticks(np.round(np.linspace(xmin, xmax, N), 2))
+
+#increase plot size
+plt.gcf().set_size_inches(25, 15)
