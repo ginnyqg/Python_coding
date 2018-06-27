@@ -272,8 +272,8 @@ df[['colA', 'colB']].drop_duplicates()
 ##################################### matplotlib #####################################
 
 
-#plot y1, y2, y3 wrt x
-plt.plot(x, y1, x, y2, x, y3)
+#plot y1, y2, y3 wrt x, change line style to None, and marker as dots (look like scatter plot)
+plt.plot(x, y1, x, y2, x, y3, linestyle = 'None', marker = 'o')
 
 fig = plt.gcf()
 
