@@ -169,6 +169,10 @@ dataset1.loc[(dataset1['col1'] == 'abc') &
 dataset1[(dataset1['col1'] == 'abc) & 
           (dataset1['col2'] == 'def')]
 
+# above return selected dataframe (subset of bigger dataframe dataset1)
+          
+#below will return the column needed 'col3' in that subset of dataframe
+dataset1[(dataset1['col1'] == 'abc) & (dataset1['col2'] == 'def')]['col3']
           
           
 #python index of these rows whose columns meet certain conditions
