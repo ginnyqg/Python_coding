@@ -395,6 +395,13 @@ for i in range(len(x)):
 colA.dtype
 
           
+#find timestamp that is a days before tstart
+plot_start = tstart - timedelta(days = a)
+print(plot_start)
+
+#find timestamp that is b days after tend
+plot_end = tend + timedelta(days = b)
+print(plot_end)          
           
           
           
