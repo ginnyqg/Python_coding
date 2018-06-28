@@ -173,6 +173,11 @@ dataset1[(dataset1['col1'] == 'abc) &
           
 #below will return the column needed 'col3' in that subset of dataframe
 dataset1[(dataset1['col1'] == 'abc) & (dataset1['col2'] == 'def')]['col3']
+
+          
+#below will return the first cell in column 'col3' in the subset of dataframe
+dataset1[(dataset1['col1'] == 'abc) & (dataset1['col2'] == 'def')]['col3'].iloc[0]
+
           
           
 #python index of these rows whose columns meet certain conditions
