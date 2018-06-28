@@ -160,10 +160,17 @@ dataset1.loc[(dataset1['col1'] == 'abc') |
             (dataset1['col2'] == 'def')]
 
 
+
 dataset1.loc[(dataset1['col1'] == 'abc') & 
             (dataset1['col2'] == 'def')]
 
+# is equivalent to
 
+dataset1[(dataset1['col1'] == 'abc) & 
+          (dataset1['col2'] == 'def')]
+
+          
+          
 #python index of these rows whose columns meet certain conditions
 dataset2 = dataset1.loc[(dataset1['col1'] == 'abc') | 
                         (dataset1['col2'] == 'def')]
