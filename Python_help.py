@@ -303,6 +303,11 @@ xcoords = [1, 2]
 for xc in xcoords:
     plt.axvline(x=xc)
 
+          
+#plot multiple vertical lines stored in a list
+[plt.axvline(_x, color = 'red', linestyle = '--') for _x in ListA[i].astype(str)]          
+
+          
 #make legend
 fig.legend(['A', 'B'])
 
