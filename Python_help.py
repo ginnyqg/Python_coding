@@ -404,4 +404,7 @@ plot_end = tend + timedelta(days = b)
 print(plot_end)          
           
           
-          
+#find all timezones available in Python
+import pytz
+pytz.all_timezones
+
