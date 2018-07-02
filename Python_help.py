@@ -415,17 +415,11 @@ pytz.all_timezones
           
 
           
-# Four subplots, the axes array is 1-d
-f, axarr = plt.subplots(4, sharex=True)
-axarr[0].plot(x, y)
-axarr[0].set_title('Sharing X axis')
-axarr[1].scatter(x, y)
-
 #https://matplotlib.org/gallery/subplots_axes_and_figures/ganged_plots.html
 
 fig, axs = plt.subplots(2, 1, sharex = True)
 # Remove horizontal space between axes
-fig.subplots_adjust(hspace=0)
+fig.subplots_adjust(hspace = 0)
 
 # Plot each graph
 axs[0].plot(x1[1], y1[1])
