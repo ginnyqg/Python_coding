@@ -412,4 +412,31 @@ print(plot_end)
 #find all timezones available in Python
 import pytz
 pytz.all_timezones
+          
 
+          
+# Four subplots, the axes array is 1-d
+f, axarr = plt.subplots(4, sharex=True)
+axarr[0].plot(x, y)
+axarr[0].set_title('Sharing X axis')
+axarr[1].scatter(x, y)
+
+          
+          
+fig, axes = plt.subplots(nrows=4, ncols=1)
+          
+for row in ax:
+    for col in row:
+        col.plot(x, y)
+
+plt.show()
+          
+          
+          
+
+          
+          
+          
+          
+          
+          
