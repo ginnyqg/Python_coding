@@ -437,7 +437,7 @@ fig = plt.figure()
 # set height ratios for sublots
 gs = gridspec.GridSpec(2, 1, height_ratios = [2, 1])
 ax0 = plt.subplot(gs[0])
-line0, = ax0.plot(x1[1], y1[1], color='r')
+line0, = ax0.plot(x1[1], y1[1])
 
 ax1 = plt.subplot(gs[1], sharex = ax0)
 line1, = ax1.plot(x2[1], y3[1] - y4[1])
