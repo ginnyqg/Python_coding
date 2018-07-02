@@ -441,7 +441,7 @@ line0, = ax0.plot(x1[1], y1[1])
 
 ax1 = plt.subplot(gs[1], sharex = ax0)
 line1, = ax1.plot(x2[1], y3[1])
-plt.setp(ax0.get_xticklabels(), visible=False)
+plt.setp(ax0.get_xticklabels(), visible = False)
 
 # # remove vertical gap between subplots
 plt.subplots_adjust(hspace=.0)
