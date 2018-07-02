@@ -431,12 +431,19 @@ for row in ax:
 
 plt.show()
           
-          
-          
 
           
-          
-          
-          
-          
-          
+fig = plt.figure()
+# set height ratios for sublots
+gs = gridspec.GridSpec(2, 1, height_ratios = [2, 1])
+ax0 = plt.subplot(gs[0])
+line0, = ax0.plot(x1[1], y1[1], color='r')
+
+ax1 = plt.subplot(gs[1], sharex = ax0)
+line1, = ax1.plot(x2[1], y3[1] - y4[1])
+plt.setp(ax0.get_xticklabels(), visible = False)
+
+# remove vertical gap between subplots
+plt.subplots_adjust(hspace = .0)
+plt.show()
+              
