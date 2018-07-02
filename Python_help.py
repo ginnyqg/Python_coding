@@ -421,6 +421,7 @@ axarr[0].plot(x, y)
 axarr[0].set_title('Sharing X axis')
 axarr[1].scatter(x, y)
 
+#https://matplotlib.org/gallery/subplots_axes_and_figures/ganged_plots.html
           
           
 fig, axes = plt.subplots(nrows=4, ncols=1)
