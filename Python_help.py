@@ -453,3 +453,5 @@ plt.setp(ax0.get_xticklabels(), visible = False)
 # # remove vertical gap between subplots
 plt.subplots_adjust(hspace=.0)
 plt.show()
+
+# https://stackoverflow.com/questions/42973223/how-share-x-axis-of-two-subplots-after-they-are-created
