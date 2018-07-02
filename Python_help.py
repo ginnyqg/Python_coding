@@ -422,6 +422,18 @@ axarr[0].set_title('Sharing X axis')
 axarr[1].scatter(x, y)
 
 #https://matplotlib.org/gallery/subplots_axes_and_figures/ganged_plots.html
+
+fig, axs = plt.subplots(2, 1, sharex = True)
+# Remove horizontal space between axes
+fig.subplots_adjust(hspace=0)
+
+# Plot each graph
+axs[0].plot(x1[1], y1[1])
+axs[1].plot(x2[1], y3[1])
+
+plt.show()
+
+
           
           
 fig, axes = plt.subplots(nrows=4, ncols=1)
