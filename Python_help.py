@@ -525,6 +525,13 @@ for i in range(len(x1)):
     ax4.legend(['fge'], loc = 1)
        
     
+    # show individual y label for each subplot
+    ax1.set(ylabel = 'Temperature (F)')
+    ax2.set(ylabel = 'Pressure (psi)')
+    ax3.set(ylabel = 'Voltage (V)')
+    ax4.set(ylabel = 'Vibration (gn)')
+               
+          
     # format the x ticks to 12 intervals, for easy read
     fig = plt.gcf()
     fig.autofmt_xdate()
