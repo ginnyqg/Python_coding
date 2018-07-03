@@ -484,5 +484,55 @@ for i in range(len(x)):
     # ax2.autoscale() ## call autoscale if needed
 plt.show()
           
+
           
-          
+for i in range(len(x1)):
+    fig = plt.figure(figsize = (25, 55))
+    ax1 = plt.subplot(411)
+    ax2 = plt.subplot(412)
+    ax3 = plt.subplot(413)
+    ax4 = plt.subplot(414)
+
+
+    # plot, and add vertical line to signal start of failed event for each subplot
+    ax1.plot(x1[i][1:100], y1[i][1:100], x1[i][1:100], y2[i][1:100], linestyle = 'None', marker = 'o')
+    [ax1.axvline(_x, color = 'red', linestyle = '--') for _x in fail_start_gmt[i].astype(str)]
+    [ax1.axvline(_x, color = 'green', linestyle = '-') for _x in fail_end_gmt[i].astype(str)] 
+    
+    ax2.plot(x2[i][1:100], y3[i][1:100] - y4[i][1:100], linestyle = 'None', marker = 'o')  
+    [ax2.axvline(_x, color = 'red', linestyle = '--') for _x in fail_start_gmt[i].astype(str)]
+    [ax2.axvline(_x, color = 'green', linestyle = '-') for _x in fail_end_gmt[i].astype(str)]    
+    
+    ax3.plot(x3[i][1:100], y5[i][1:100], x3[i][1:100], y6[i][1:100], linestyle = 'None', marker = 'o')
+    [ax3.axvline(_x, color = 'red', linestyle = '--') for _x in fail_start_gmt[i].astype(str)]
+    [ax3.axvline(_x, color = 'green', linestyle = '-') for _x in fail_end_gmt[i].astype(str)]    
+    
+    ax4.plot(x4[i][1:100], y7[i][1:100], linestyle = 'None', marker = 'o')
+    [ax4.axvline(_x, color = 'red', linestyle = '--') for _x in fail_start_gmt[i].astype(str)]
+    [ax4.axvline(_x, color = 'green', linestyle = '-') for _x in fail_end_gmt[i].astype(str)]    
+    
+    
+#     ax1.get_shared_x_axes().join(ax1, ax2, ax3, ax4)
+  
+    
+    # plot merged figure title
+    ax1.set_title('Failure for ' + str(listA[i]), fontsize = 30)
+    
+    # show legend for each subplot
+    ax1.legend(['abc', 'def'], loc = 1)
+    ax2.legend(['cdc'], loc = 1)
+    ax3.legend(['dfg', 'efg'], loc = 1)
+    ax4.legend(['fge'], loc = 1)
+       
+    
+    # format the x ticks to 12 intervals, for easy read
+    fig = plt.gcf()
+    fig.autofmt_xdate()
+    xmin, xmax = plt.gca().get_xlim()
+    plt.gca().set_xticks(np.round(np.linspace(xmin, xmax, 12), 2))
+
+
+    #elimiate vertical space (height) in between subplots    
+    plt.subplots_adjust(hspace = 0)
+    
+plt.show()          
