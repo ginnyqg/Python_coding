@@ -428,16 +428,27 @@ axs[1].plot(x2[1], y3[1])
 plt.show()
 
 
+  
           
-          
-fig, axes = plt.subplots(nrows=4, ncols=1)
-          
-for row in ax:
-    for col in row:
-        col.plot(x, y)
+t= np.arange(1000)/100.
+x = np.sin(2*np.pi*10*t)
+y = np.cos(2*np.pi*10*t)
+
+fig=plt.figure()
+ax1 = plt.subplot(211)
+ax2 = plt.subplot(212)
+
+ax1.plot(t,x)
+ax2.plot(t,y)
+
+ax1.get_shared_x_axes().join(ax1, ax2)
+ax1.set_xticklabels([])
+# ax2.autoscale() ## call autoscale if needed
 
 plt.show()
           
+          
+       
 
           
 fig = plt.figure()
