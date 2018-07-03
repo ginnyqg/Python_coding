@@ -427,7 +427,6 @@ axs[1].plot(x2[1], y3[1])
 
 plt.show()
 
-
   
           
 t= np.arange(1000)/100.
@@ -446,9 +445,7 @@ ax1.set_xticklabels([])
 # ax2.autoscale() ## call autoscale if needed
 
 plt.show()
-          
-          
-       
+      
 
           
 fig = plt.figure()
@@ -466,3 +463,26 @@ plt.subplots_adjust(hspace=.0)
 plt.show()
 
 # https://stackoverflow.com/questions/42973223/how-share-x-axis-of-two-subplots-after-they-are-created
+
+          
+t= [[22,23],[24,25],[26,27]]
+x = [[10,20],[30,40],[50,60]]
+y = [[30,40],[50,60],[70,80]]
+
+
+for i in range(len(x)):
+    fig=plt.figure()
+    ax1 = plt.subplot(211)
+    ax2 = plt.subplot(212)
+    
+    ax1.plot(t[i], x[i])
+    ax2.plot(t[i], y[i])
+    
+    ax1.get_shared_x_axes().join(ax1, ax2)
+    ax1.set_xticklabels([])
+    ax1.set_title('Set ' + str(i))
+    # ax2.autoscale() ## call autoscale if needed
+plt.show()
+          
+          
+          
