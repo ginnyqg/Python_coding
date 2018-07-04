@@ -415,39 +415,7 @@ pytz.all_timezones
           
 
           
-#https://matplotlib.org/gallery/subplots_axes_and_figures/ganged_plots.html
-
-fig, axs = plt.subplots(2, 1, sharex = True)
-# Remove horizontal space between axes
-fig.subplots_adjust(hspace = 0)
-
-# Plot each graph
-axs[0].plot(x1[1], y1[1])
-axs[1].plot(x2[1], y3[1])
-
-plt.show()
-
-  
-          
-t= np.arange(1000)/100.
-x = np.sin(2*np.pi*10*t)
-y = np.cos(2*np.pi*10*t)
-
-fig=plt.figure()
-ax1 = plt.subplot(211)
-ax2 = plt.subplot(212)
-
-ax1.plot(t,x)
-ax2.plot(t,y)
-
-ax1.get_shared_x_axes().join(ax1, ax2)
-ax1.set_xticklabels([])
-# ax2.autoscale() ## call autoscale if needed
-
-plt.show()
-      
-
-          
+#https://matplotlib.org/gallery/subplots_axes_and_figures/ganged_plots.html          
 fig = plt.figure()
 # set height ratios for sublots
 gs = gridspec.GridSpec(2, 1)
