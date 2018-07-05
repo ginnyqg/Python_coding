@@ -272,6 +272,11 @@ df[[i for i in df.columns.get_values() if i.startswith('Abc')]].dropna().describ
 #select several index columns from the same data frame
 df[['a', 'b']]
 
+          
+#select colA, D, F by name from df and make it a new dataframe: df_new          
+df_new = df.loc[:, ['colA', 'colD', 'colF']]          
+          
+          
 #create a new column that flags 1 when any of the two columns is 1
 df['flag'] = df[['a', 'b']].max(axis = 1)
 
