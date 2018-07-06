@@ -516,3 +516,9 @@ for i in range(len(x1)):
     plt.subplots_adjust(hspace = 0)
     
 plt.show()          
+
+          
+# partition big dataset with smaller dataset based on unique value in a column          
+dict_of_items = {item: df_item for item, df_item in df.groupby('Items
+                                                               
+                                                               
