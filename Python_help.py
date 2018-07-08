@@ -519,6 +519,9 @@ plt.show()
 
           
 # partition big dataset with smaller dataset based on unique value in a column          
-dict_of_items = {item: df_item for item, df_item in df.groupby('Items
-                                                               
-                                                               
+dict_of_items = {item: df_item for item, df_item in df.groupby('Items')
+
+# access first item of first value of key from a dictionary
+list(dict['key1'][0])[0]
+
+                 
