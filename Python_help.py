@@ -525,3 +525,20 @@ dict_of_items = {item: df_item for item, df_item in df.groupby('Items')
 list(dict['key1'][0])[0]
 
                  
+#merge several csvs into 1 csv
+import pandas as pd
+import glob, os
+ 
+os.chdir('filepath')
+results = pd.DataFrame([])
+ 
+for counter, file in enumerate(glob.glob("csv_filename_matching*")):
+    namedf = pd.read_csv(file)
+    results = results.append(namedf)
+ 
+results.to_csv('path')
+                 
+                 
+                 
+                 
+                 
