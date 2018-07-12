@@ -539,6 +539,6 @@ for counter, file in enumerate(glob.glob("csv_filename_matching*")):
 results.to_csv('path')
                  
                  
-                 
-                 
+#check and return columns names whose value is all null
+results.columns[results.isnull().all()]                 
                  
