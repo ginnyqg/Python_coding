@@ -542,3 +542,23 @@ results.to_csv('path')
 #check and return columns names whose value is all null
 results.columns[results.isnull().all()]                 
                  
+#find columns that have all nulls, and drop those columns by column names
+#before dropping those all null columns, check dataframe shape
+results.shape
+                 
+nullcols = results.columns[results.isnull().all()]
+print(nullcols)
+print(len(nullcols))
+                 
+results.drop(nullcols, inplace = True, axis = 1)
+                             
+#after dropping those all null columns, check dataframe shape                 
+results.shape
+                 
+list(results)
+                 
+                 
+ 
+                 
+                 
+                 
