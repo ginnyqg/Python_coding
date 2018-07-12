@@ -557,8 +557,9 @@ results.shape
                  
 list(results)
                  
-                 
- 
+      
+#time how long a step in ipython notebook takes
+ %time (code)
                  
                  
                  
