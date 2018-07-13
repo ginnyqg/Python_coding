@@ -194,6 +194,10 @@ dataset1.drop(dataset1.index[drop_index])
 (sorted(df.colname.dropna()) == df.colname.dropna()).unique()
 
 
+#select columns in df by column name
+df.loc[:, df.columns.isin(['colNameA', 'colNameB'])]
+          
+          
 #make a table of counts, sort descendingly
 lista.value_counts().sort_values(ascending = False)
 
