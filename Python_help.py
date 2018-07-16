@@ -579,11 +579,41 @@ for item in i_list:
         dict['{0}'.format(item)] = dataframe/value/tuples
     except (SyntaxError, KeyError):
         pass
+ 
+                 
+#dataframe
+                 
+dict = {}
+
+for item in i_list:
+    try:
+        dict['{0}'.format(well)] = df[(pd.to_datetime(df['colD']) >= dict_a[j]) & (pd.to_datetime(df['colD']) <= dict_b[j]) & (df['col_item'] == i)]  
+    except (SyntaxError, KeyError):
+        pass                 
+                 
+                 
+#value
+                          
+dict = {}
+
+for item in i_list:
+    try:
+        dict['{0}'.format(well)] = pd.to_datetime(df[(df['colC'] == 1) & (df['col_item'] == i)]['colA'].iloc[0])                   
+    except (IndexError):
+        pass
+print(dict)                 
                  
                  
                  
-                 
-                 
+#tuple                 
+dict = {}
+
+for item in i_list:
+    try:
+        dict['{0}'.format(i)] = (pd.to_datetime(df[(df['colC'] == 1) & (df['col_item'] == i)]['ColA'].iloc[0]) - timedelta(days = 10), pd.to_datetime(df[(df['colC'] == 1) & (df['col_item'] == i)]['colB'].iloc[-1]) + timedelta(days = 10))
+    except (IndexError):
+        pass
+print(dict)               
                  
                  
                  
