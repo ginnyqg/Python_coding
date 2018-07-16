@@ -570,4 +570,20 @@ list(results)
  %time (code)
                  
                  
+#make a dictionary based on value in a list
+                 
+dict = {}
+                 
+for item in i_list:
+    try:
+        dict['{0}'.format(item)] = dataframe/value/tuples
+    except (SyntaxError, KeyError):
+        pass
+                 
+                 
+                 
+                 
+                 
+                 
+                 
                  
