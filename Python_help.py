@@ -616,4 +616,8 @@ for item in i_list:
 print(dict)               
                  
                  
+#rename column name                 
+df.rename(columns = {'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace = True)   
+                 
+
                  
