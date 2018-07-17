@@ -617,7 +617,13 @@ print(dict)
                  
                  
 #rename column name                 
-df.rename(columns = {'oldName1': 'newName1', 'oldName2': 'newName2'}, inplace = True)   
-                 
+df.rename(columns = {'oldNameColA': 'newNameColA', 'oldNameColB': 'newNameColB'}, inplace = True)   
 
+                 
+#find rows where colA is null in df                 
+df[df['colA'].isnull()] 
+                 
+                 
+                 
+                 
                  
