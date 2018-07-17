@@ -274,6 +274,17 @@ first_3_col = df_a.iloc[:, 0:3]
 #put two dataframes together, side by side
 df_imputed = pd.concat([first_3_col, df_interpolate_w_rule], axis = 1)
 
+          
+#concatenate dataframe and dictionary side by side, handle index mismatching          
+df_c = pd.DataFrame()
+df_results = pd.DataFrame()
+
+for item in item_list:
+    df_c = pd.concat([df[df['colA'] == item].reset_index(), pd.DataFrame(dict[item]).reset_index()], axis = 1)
+    #indent here is important!
+    df_results = df_results.append(df_c)
+
+
 #describe statistics of a set of columns whose names start with certain string
 df[[i for i in df.columns.get_values() if i.startswith('Abc')]].dropna().describe()
 
