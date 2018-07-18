@@ -200,8 +200,12 @@ dataset1.drop(dataset1.index[drop_index])
 
 #select columns in df by column name
 df.loc[:, df.columns.isin(['colNameA', 'colNameB'])]
+
           
-          
+#select columns in df by column name, return first 30 rows          
+df.loc[ : , ['colA', 'colB']][df['colC'] == 1][:30]          
+
+         
 #make a table of counts, sort descendingly
 lista.value_counts().sort_values(ascending = False)
 
