@@ -635,6 +635,16 @@ df.rename(columns = {'oldNameColA': 'newNameColA', 'oldNameColB': 'newNameColB'}
 df[df['colA'].isnull()] 
                  
                  
+#update partial column value to 1 based on another column (ColB == 1) in the df                 
+#notice no quotation mark on ColB
+                 
+df['col_target'][(df.ColB == 1)] = 0                 
+                 
+
+#col value based on if-else in another column
+df['col_target'] = np.where(df['ColB'] == 1, 'yes', 'no')
+                 
+                 
                  
                  
                  
