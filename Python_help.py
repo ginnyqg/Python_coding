@@ -649,6 +649,8 @@ df['col_target'][(df.ColB == 1)] = 0
 df['col_target'] = np.where(df['ColB'] == 1, 'yes', 'no')
                  
                  
+#count number of 1s in df changed-to list
+list(df.loc[ : , 'colFlag'][(df['colFlag'] == 1) & (df['colA'] == 'Abc')]
+).count(1)
                  
-                 
-                 
+
