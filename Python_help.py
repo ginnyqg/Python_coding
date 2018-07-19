@@ -561,7 +561,15 @@ for counter, file in enumerate(glob.glob("csv_filename_matching*")):
  
 results.to_csv('path')
                  
+
+#get first 80% of data from files in this directory that start with specific string
+
+for counter, file in enumerate(glob.glob('csv_filename_matching*')):
+    namedf = pd.read_csv(file)
+    results = results.append(namedf[: round(0.8 * (namedf.shape[0]))])
                  
+                               
+                
 #check and return columns names whose value is all null
 results.columns[results.isnull().all()]                 
                  
