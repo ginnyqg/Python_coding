@@ -638,6 +638,28 @@ for item in i_list:
         pass
 print(dict)               
                  
+
+                 
+#find out for each, what end time does it have
+
+dict_t = {}
+tot = 0
+
+for item in item_list:
+    try:
+        dict_t['{0}'.format(item)] = pd.to_datetime(df_log[(df_log['flag'] == 1) & (df_log['Col_item'] == item)]['ts'])           
+        print(item)
+        print(len(list(dict_t[item])))
+        tot += len(list(dict_t[item]))
+        
+    except (IndexError):
+        pass
+
+print(tot)
+print(dict_t)
+                 
+                 
+                 
                  
 #rename column name                 
 df.rename(columns = {'oldNameColA': 'newNameColA', 'oldNameColB': 'newNameColB'}, inplace = True)   
