@@ -194,6 +194,10 @@ drop_index = dataset2.index.tolist()
 dataset1.drop(dataset1.index[drop_index])
 
 
+#drop some records/rows meet condtion
+df = df.drop(df[pd.to_datetime(df['ts']) >= dict[key]].index)
+          
+          
 #check if a column is sorted(without NA)
 (sorted(df.colname.dropna()) == df.colname.dropna()).unique()
 
@@ -682,5 +686,6 @@ df['col_target'] = np.where(df['ColB'] == 1, 'yes', 'no')
 #count number of 1s in df changed-to list
 list(df.loc[ : , 'colFlag'][(df['colFlag'] == 1) & (df['colA'] == 'Abc')]
 ).count(1)
-                 
 
+                 
+               
