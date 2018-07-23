@@ -316,7 +316,13 @@ df['time_down'].dt.total_seconds() / 3600
 #drop duplicates in both columns
 df[['colA', 'colB']].drop_duplicates()
 
+#remove dataframe need to be deleted from df1
+#repeat df2 because it's not a complete subset of df1
+#our goal is to negate those from df2 in df1, not to include what's in second one
 
+pd.concat([df1, df2, df2]).drop_duplicates(keep = False)
+
+          
 ##################################### matplotlib #####################################
 
 
