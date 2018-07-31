@@ -694,4 +694,15 @@ list(df.loc[ : , 'colFlag'][(df['colFlag'] == 1) & (df['colA'] == 'Abc')]
 ).count(1)
 
                  
-               
+#if any number in the series is greater than a threshold, then increase count by 1
+
+pred = 0
+if any(i >= thres for i in rmse):
+    pred += 1
+
+                 
+                 
+                 
+
+                 
+                 
