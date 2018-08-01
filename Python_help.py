@@ -719,7 +719,7 @@ for counter, file in enumerate(glob.glob('startWithAbc_*')):
     try:
         dict_full[''.join(df['Abc'].unique())].append(df)
     except (KeyError):
-        dict_full[''.join(df['Abc'].unique())] = df          
+        dict_full[''.join(df['Abc'].unique())] = [df]          
                  
                  
                  
