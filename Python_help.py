@@ -704,5 +704,24 @@ if any(i >= thres for i in rmse):
 #convert list to string                 
 ''.join(df['Abc'].unique())
 
+
+                 
+                 
+#create a dictionary, if a key already exist, append value to it; if not, create new key, and corresponding value                 
+dict_full = {}
+
+                 
+import glob, os
+os.chdir(path)
+                 
+for counter, file in enumerate(glob.glob('startWithAbc_*')):
+    df = pd.read_csv(file) 
+    try:
+        dict_full[''.join(df['Abc'].unique())].append(df)
+    except (KeyError):
+        dict_full[''.join(df['Abc'].unique())] = [df]             
+                 
+                 
+                 
                  
                  
