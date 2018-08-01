@@ -699,10 +699,10 @@ list(df.loc[ : , 'colFlag'][(df['colFlag'] == 1) & (df['colA'] == 'Abc')]
 pred = 0
 if any(i >= thres for i in rmse):
     pred += 1
+       
 
-                 
-                 
-                 
+#convert list to string                 
+''.join(df['Abc'].unique())
 
                  
                  
