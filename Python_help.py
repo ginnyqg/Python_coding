@@ -722,6 +722,15 @@ for counter, file in enumerate(glob.glob('startWithAbc_*')):
         dict_full[''.join(df['Abc'].unique())] = [df]          
                  
                  
+#loop 2 variables simultaneously
+for i, j in zip(glob.glob('dict_*'), j_list):
+    dict_a[j][0]['new_col'] = dict_b[j] - pd.to_datetime(dict_a[j][0]['col_ts'])
+    print(dict_a[j])
+    dict_a[j][0].to_csv(path + str(file[11 : -4]) + '.csv', header = True, index = False)
+
+                 
+                 
+                 
                  
                  
                  
