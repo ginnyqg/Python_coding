@@ -730,7 +730,9 @@ for i, j in zip(glob.glob('dict_*'), j_list):
 
                  
                  
-                 
+#install survival model, datasets, which is on top of scikit-learn
+sys.executable -m pip install --upgrade scikit-survival
+             
                  
                  
                  
