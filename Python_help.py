@@ -720,7 +720,21 @@ for counter, file in enumerate(glob.glob('startWithAbc_*')):
         dict_full[''.join(df['Abc'].unique())].append(df)
     except (KeyError):
         dict_full[''.join(df['Abc'].unique())] = [df]          
+
                  
+#if column Abc has one single value                 
+dict_a = {}
+
+for counter, file in enumerate(glob.glob('dict_*')):
+    namedf = pd.read_csv(file)
+    print(namedf.well[0])
+    try:
+        dict_a[namedf.Abc[0]].append(namedf)
+        
+    except (KeyError):
+        dict_a[namedf.Abc[0]] = [namedf]
+                 
+       
                  
 #loop 2 variables simultaneously
 for i, j in zip(glob.glob('dict_*'), j_list):
