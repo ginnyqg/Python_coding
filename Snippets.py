@@ -720,7 +720,49 @@ for counter, file in enumerate(glob.glob('startWithAbc_*')):
         dict_full[''.join(df['Abc'].unique())].append(df)
     except (KeyError):
         dict_full[''.join(df['Abc'].unique())] = [df]          
+
                  
+#if column Abc has one single value                 
+dict_a = {}
+
+for counter, file in enumerate(glob.glob('dict_*')):
+    namedf = pd.read_csv(file)
+    print(namedf.well[0])
+    try:
+        dict_a[namedf.Abc[0]].append(namedf)
+        
+    except (KeyError):
+        dict_a[namedf.Abc[0]] = [namedf]
+                 
+       
+                 
+#loop 2 variables simultaneously
+for i, j in zip(glob.glob('dict_*'), j_list):
+    dict_a[j][0]['new_col'] = dict_b[j] - pd.to_datetime(dict_a[j][0]['col_ts'])
+    print(dict_a[j])
+    dict_a[j][0].to_csv(path + str(file[11 : -4]) + '.csv', header = True, index = False)
+
+                 
+                 
+#install survival model, datasets, which is on top of scikit-learn
+sys.executable -m pip install --upgrade scikit-survival
+             
+                 
+#combine year, month, day, hour to 1 timestamp column when importing        
+from pandas import read_csv
+from datetime import datetime
+                 
+def parse(x):
+    return datetime.strptime(x, '%Y %m %d %H') 
+                 
+dataset = read_csv(path, parse_dates = [['year', 'month', 'day', 'hour']], index_col = 0, date_parser = parse)
+dataset.head()                 
+                 
+                 
+                 
+#replace missing value NaN in column Abc with 0                
+dataset['Abc'].fillna(0, inplace = True)
+
                  
                  
                  
