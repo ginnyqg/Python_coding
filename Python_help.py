@@ -748,5 +748,14 @@ for i, j in zip(glob.glob('dict_*'), j_list):
 sys.executable -m pip install --upgrade scikit-survival
              
                  
+#combine year, month, day, hour to 1 timestamp column when importing        
+from pandas import read_csv
+from datetime import datetime
+                 
+def parse(x):
+    return datetime.strptime(x, '%Y %m %d %H') 
+                 
+dataset = read_csv(path, parse_dates = [['year', 'month', 'day', 'hour']], index_col = 0, date_parser = parse)
+dataset.head()                 
                  
                  
