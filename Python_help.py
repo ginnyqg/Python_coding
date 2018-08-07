@@ -759,3 +759,11 @@ dataset = read_csv(path, parse_dates = [['year', 'month', 'day', 'hour']], index
 dataset.head()                 
                  
                  
+                 
+#replace missing value NaN in column Abc with 0                
+dataset['Abc'].fillna(0, inplace = True)
+
+                 
+                 
+                 
+                 
