@@ -763,7 +763,17 @@ dataset.head()
 #replace missing value NaN in column Abc with 0                
 dataset['Abc'].fillna(0, inplace = True)
 
+
                  
+#plot pred vs actual                 
+plt.figure(figsize = (10, 6))
+plt.plot(yhat[ : 1000])
+plt.plot(y[ : 1000])
+plt.legend(['Predict', 'Actual'], loc = 'upper right')
+plt.ylim(0, 20)
+plt.show()                 
+                 
+
                  
                  
                  
