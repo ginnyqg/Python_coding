@@ -290,9 +290,13 @@ df_results = pd.DataFrame()
 for item in item_list:
     df_c = pd.concat([df[df['colA'] == item].reset_index(), pd.DataFrame(dict[item]).reset_index()], axis = 1)
     #indent here is important!
-    df_results = df_results.append(df_c)
+    df_results = df_results.append(df_c)[df_c.columns.tolist()]
+  
+          
+#To keep columns same order in the appended dataframe
+df_full = df_full.append(df)[df.columns.tolist()]
 
-
+          
 #describe statistics of a set of columns whose names start with certain string
 df[[i for i in df.columns.get_values() if i.startswith('Abc')]].dropna().describe()
 
