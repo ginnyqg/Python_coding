@@ -774,6 +774,33 @@ plt.ylim(0, 20)
 plt.show()                 
                  
 
+#LSTM architecture
+nb_epoch = 100
+batch_size = 256
+
+model = Sequential()
+
+#hidden layer with 20 neurons
+model.add(LSTM(20, input_shape = (train_X.shape[1], train_X.shape[2]), activation = 'relu'))
+
+#ouput layer has 1 single value for prediction
+model.add(Dense(1)) 
+
+model.compile(loss = 'mae', optimizer = Adam(lr = 0.001), metrics = ['accuracy'])
+
+
+# Set callback functions to early stop, and save the best model so far
+callbacks = [EarlyStopping(monitor = 'val_loss', patience = 5),
+             ModelCheckpoint(filepath = 'best_model.h5', monitor = 'val_loss', save_best_only = True)]
+
+#fit network
+history = model.fit(train_X, train_y, 
+                    epochs = nb_epoch, 
+                    batch_size = batch_size, 
+                    validation_data = (test_X, test_y), 
+                    verbose = 1, 
+                    shuffle = False,
+                    callbacks = callbacks)
                  
                  
                  
