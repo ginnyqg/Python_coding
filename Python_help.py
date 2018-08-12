@@ -326,6 +326,19 @@ df[['colA', 'colB']].drop_duplicates()
 
 pd.concat([df1, df2, df2]).drop_duplicates(keep = False)
 
+#feature engineering
+for i in list(df):
+    for j in [3, 24]:
+        #moving average, standard deviation, coefficient of variation, median, 50% quantile
+        #for time window of 3, 24 hours, or window = 9, 72 intervals (1 interval = 20 min)
+        #min_periods (min number of observations in window before returning NaN) is set to be > half of data available in the window
+        df[i + '_mean' + str(j)] = df[i].rolling(window = 3*j, min_periods = math.ceil(3*j/2)).mean()
+        df[i + '_sd' + str(j)] = df[i].rolling(window = 3*j, min_periods = math.ceil(3*j/2)).std()
+        df[i + '_cov' + str(j)] = df[i].rolling(window = 3*j, min_periods = math.ceil(3*j/2)).std()/df_imputed[i].rolling(window = 3*j, min_periods = math.ceil(3*j/2)).mean()
+        df[i + '_median' + str(j)] = df[i].rolling(window = 3*j, min_periods = math.ceil(3*j/2)).median()
+        df[i + '_50pct' + str(j)] = df[i].rolling(window = 3*j, min_periods = math.ceil(3*j/2)).quantile(.5)
+        df[i + '_mean1diff' + str(j)] = df[i].diff().rolling(window = 3*j - 1, min_periods = math.ceil(3*j/2)).mean()
+
           
 ##################################### matplotlib #####################################
 
