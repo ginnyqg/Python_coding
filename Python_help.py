@@ -348,7 +348,10 @@ for i in list(df):
           
 ##################################### matplotlib #####################################
 
-
+#plot use ggplot style
+plt.style.use('ggplot')
+          
+          
 #plot y1, y2, y3 wrt x, change line style to None, and marker as dots (look like scatter plot)
 plt.plot(x, y1, x, y2, x, y3, linestyle = 'None', marker = 'o')
 
