@@ -254,6 +254,10 @@ df_new = pd.merge(df_ontheleft, df_ontheright, how = 'left', on = ['commonColA',
 #check number of NAs in each column of a dataframe
 df.isnull().sum()
 
+          
+#return dataframe where colA has NaN
+df[df.ColA.isnull()]
+          
 
 #calculate time delta between two timestamps
 (pd.to_datetime(max(df_fillin_interpolate['tstamp'])) - pd.to_datetime(min(df_fillin_interpolate['tstamp'])))
