@@ -586,6 +586,16 @@ for i in range(len(x1)):
 plt.show()          
 
           
+#plot correlation heatmap using seaborn
+fig = plt.figure(figsize = (10, 8))
+corr = data.corr()
+sns.set(font_scale = 1.6)
+sns.heatmap(corr, annot = True, cmap = 'seismic')
+plt.title('Heatmap of Correlation Matrix', fontsize = 25)
+          
+          
+          
+          
 # partition big dataset with smaller dataset based on unique value in a column          
 dict_of_items = {item: df_item for item, df_item in df.groupby('Items')
 
