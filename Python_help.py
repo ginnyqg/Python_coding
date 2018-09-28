@@ -15,6 +15,11 @@ print(train.head())
 import os
 os.getcwd()
 
+#change current working directory to path
+os.chdir('path')
+
+
+
 #check system path
 import sys
 sys.path
