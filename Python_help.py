@@ -851,4 +851,45 @@ history = model.fit(train_X, train_y,
                     callbacks = callbacks)
                  
                  
+# Geocode
+from uszipcode import SearchEngine
+search = SearchEngine(simple_zipcode = True)
+                 
+home_zip = search.by_zipcode("08648")
+print(home_zip)
+lat_long = (home_zip.lat, home_zip.lng)
+print('\n')
+print('Latitude and Longitude are: ' + str(lat_long))
+                 
+# Create tuple of latitude, longitude, 'Lat_Lng_Zip' based on zip code column
+df['Lat_Lng_Zip'] = df.apply(lambda df: (search.by_zipcode(df['Zip Code']).lat, search.by_zipcode(df['Zip Code']).lng), axis = 1)
+
+
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
                  
