@@ -866,6 +866,15 @@ df['Lat_Lng_Zip'] = df.apply(lambda df: (search.by_zipcode(df['Zip Code']).lat, 
 
 
                  
+# Create a map from a column, and generate a new column with mapped value
+my_map = {'Abc' : '1', 'Def' : '2', 
+                  'Ghi' : '3', 'Jkl' : '4'}
+                 
+df['New Col'] = df['Old Col'].map(my_map)                 
+                 
+
+                 
+                 
                  
                  
                  
