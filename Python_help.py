@@ -412,10 +412,19 @@ plt.rc('legend', fontsize = SMALL_SIZE)    # legend fontsize
 
 
 fig.savefig(filepath + str(plot_title) + '.png')      
-         
+       
           
           
+################################ Size: title, x,y label, x,y ticks ################################
           
+plt.xlabel('Age', fontsize = 16)
+plt.ylabel('Distance (mile)', fontsize = 16)
+plt.title('Cluster of Millenials Regular Employees, k = 4', fontsize = 22, fontweight = "bold")
+
+plt.xticks(fontsize = 14)
+plt.yticks(fontsize = 14)          
+ 
+####################################################################################################          
           
 #loop, print
 #plot delta pressure figures for when pumps fail
