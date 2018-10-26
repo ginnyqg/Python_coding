@@ -72,7 +72,7 @@ backend: TkAgg
 
 #import seaborn error, import in terminal, not in jupyter notebook
 #cause and solution: https://github.com/jupyter/notebook/issues/2359
-# check in notebook
+#check in notebook
 
 sys.executable
 # /Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6
@@ -173,12 +173,12 @@ dataset2
 dataset1.loc[(dataset1['col1'] == 'abc') & 
             (dataset1['col2'] == 'def')]
 
-# is equivalent to
+#is equivalent to
 
 dataset1[(dataset1['col1'] == 'abc') & 
           (dataset1['col2'] == 'def')]
 
-# above return selected dataframe (subset of bigger dataframe dataset1)
+#above return selected dataframe (subset of bigger dataframe dataset1)
           
 #below will return the column needed 'col3' in that subset of dataframe
 dataset1[(dataset1['col1'] == 'abc) & (dataset1['col2'] == 'def')]['col3']
@@ -369,12 +369,12 @@ plt.plot(x, y1, x, y2, x, y3, linestyle = 'None', marker = 'o')
 
 fig = plt.gcf()
 
-# format the ticks, cutomize N
+#format the ticks, cutomize N
 fig.autofmt_xdate()
 xmin, xmax = plt.gca().get_xlim()
 plt.gca().set_xticks(np.round(np.linspace(xmin, xmax, N), 2))
 
-# add vertical lines
+#add vertical lines
 xcoords = [1, 2]
 for xc in xcoords:
     plt.axvline(x=xc)
@@ -511,7 +511,7 @@ ax1 = plt.subplot(gs[1], sharex = ax0)
 line1, = ax1.plot(x2[1], y3[1])
 plt.setp(ax0.get_xticklabels(), visible = False)
 
-# # remove vertical gap between subplots
+##remove vertical gap between subplots
 plt.subplots_adjust(hspace=.0)
 plt.show()
 
@@ -608,7 +608,7 @@ plt.title('Heatmap of Correlation Matrix', fontsize = 25)
           
           
           
-# partition big dataset with smaller dataset based on unique value in a column          
+#partition big dataset with smaller dataset based on unique value in a column          
 dict_of_items = {item: df_item for item, df_item in df.groupby('Items')
 
 # access first item of first value of key from a dictionary
@@ -846,7 +846,7 @@ model.add(Dense(1))
 model.compile(loss = 'mae', optimizer = Adam(lr = 0.001), metrics = ['accuracy'])
 
 
-# Set callback functions to early stop, and save the best model so far
+#Set callback functions to early stop, and save the best model so far
 callbacks = [EarlyStopping(monitor = 'val_loss', patience = 5),
              ModelCheckpoint(filepath = 'best_model.h5', monitor = 'val_loss', save_best_only = True)]
 
@@ -860,7 +860,7 @@ history = model.fit(train_X, train_y,
                     callbacks = callbacks)
                  
                  
-# Geocode
+#Geocode
 from uszipcode import SearchEngine
 search = SearchEngine(simple_zipcode = True)
                  
@@ -870,32 +870,18 @@ lat_long = (home_zip.lat, home_zip.lng)
 print('\n')
 print('Latitude and Longitude are: ' + str(lat_long))
                  
-# Create tuple of latitude, longitude, 'Lat_Lng_Zip' based on zip code column
+#Create tuple of latitude, longitude, 'Lat_Lng_Zip' based on zip code column
 df['Lat_Lng_Zip'] = df.apply(lambda df: (search.by_zipcode(df['Zip Code']).lat, search.by_zipcode(df['Zip Code']).lng), axis = 1)
 
 
                  
-# Create a map from a column, and generate a new column with mapped value
+#Create a map from a column, and generate a new column with mapped value
 my_map = {'Abc' : '1', 'Def' : '2', 
                   'Ghi' : '3', 'Jkl' : '4'}
                  
 df['New Col'] = df['Old Col'].map(my_map)                 
                  
 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
                  
                  
                  
