@@ -873,7 +873,23 @@ print('Latitude and Longitude are: ' + str(lat_long))
 #Create tuple of latitude, longitude, 'Lat_Lng_Zip' based on zip code column
 df['Lat_Lng_Zip'] = df.apply(lambda df: (search.by_zipcode(df['Zip Code']).lat, search.by_zipcode(df['Zip Code']).lng), axis = 1)
 
+                 
+                 
+#another zipcode package
+from pprint import pprint
+import zipcodes
+                 
+def homeZip_to_geocode(zip):
+    try:
+        return (zipcodes.matching(str(zip))[0]['lat'], zipcodes.matching(str(zip))[0]['long'])
+    except:                       
+        pass
 
+X['Lat_Lng_Home2'] = X['Zip Code'].apply(homeZip_to_geocode)
+
+                 
+                 
+                 
                  
 #Create a map from a column, and generate a new column with mapped value
 my_map = {'Abc' : '1', 'Def' : '2', 
