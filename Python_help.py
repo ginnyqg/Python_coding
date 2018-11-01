@@ -890,6 +890,22 @@ X['Lat_Lng_Home2'] = X['Zip Code'].apply(homeZip_to_geocode)
                  
                  
                  
+# Create Distance_mile to calculate home to office distance in miles                 
+from geopy.distance import vincenty
+
+def distance_calc(row):
+    try:
+        start = row['Lat_Lng_Home']
+        stop = row['Lat_Lng_Office']
+        return vincenty(start, stop).miles
+    except:
+        pass                 
+
+X['Distance_mile'] = X.apply (lambda row: distance_calc(row), axis = 1)
+                 
+                 
+          
+                 
                  
 #Create a map from a column, and generate a new column with mapped value
 my_map = {'Abc' : '1', 'Def' : '2', 
