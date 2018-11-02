@@ -243,6 +243,19 @@ choices = ['P3', 'P1', 'P2', 'P3']
 df['colname'] = np.select(conditions, choices)
 
 
+#create new column New_Col according to conditions in other columns          
+def fct(row):
+    if (row['ColA'] == 1) and (row['ColB'] == 'Abc'):
+        return 'Big'
+    elif (row['ColA'] == 1) and (row['ColB'] == 'Def'):
+        return 'Medium'
+    elif row['ColA'] == 0:
+        return 'Small'
+
+df['New_Col'] = df.apply(lambda row: fct(row), axis = 1)          
+ 
+          
+          
 #convert datatype to str for columns in dataframe
 df['new_col'] = df['colA'].astype(str) + ' '+ df['colB'].astype(str) + ':' + df['colC'].astype(str) + ':00'
 df
