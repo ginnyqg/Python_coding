@@ -935,6 +935,8 @@ plt.xlabel('Distance (miles)', fontsize = 16)
 plt.ylabel('Density', fontsize = 16)
 plt.title('XYZ', fontsize = 22, fontweight = "bold")
 
+plt.setp(ax1.get_legend().get_texts(), fontsize = 14)
+                 
 plt.xticks(fontsize = 14)
 plt.yticks(fontsize = 14)
 
