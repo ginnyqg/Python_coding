@@ -233,6 +233,10 @@ pd.date_range('2013-08-01 00:00:00', '2017-03-06 00:00:00', freq='20min')
 index = pd.MultiIndex.from_product([lista, listb], names = ['cola', 'colb'])
 pd.DataFrame(index = index).reset_index()
 
+	  
+#rename index column	  
+df.index.name = 'new_col_name'	  
+	  
 
 #assign groups based on conditions
 conditions = [df['colname'] == 0, 
