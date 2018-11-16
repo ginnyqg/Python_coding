@@ -162,7 +162,7 @@ len(df['colname'])
 
 #select subset from different columns meet conditions, | means or
 dataset1.loc[(dataset1['col1'] == 'abc') | 
-            (dataset1['col2'] == 'def')]
+             (dataset1['col2'] == 'def')]
 
 
 #select subset of dataset1 from a list of specific values from a column in dataset1
@@ -171,12 +171,12 @@ dataset2
 
 
 dataset1.loc[(dataset1['col1'] == 'abc') & 
-            (dataset1['col2'] == 'def')]
+             (dataset1['col2'] == 'def')]
 
 #is equivalent to
 
 dataset1[(dataset1['col1'] == 'abc') & 
-          (dataset1['col2'] == 'def')]
+         (dataset1['col2'] == 'def')]
 
 #above return selected dataframe (subset of bigger dataframe dataset1)
           
