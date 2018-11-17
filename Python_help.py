@@ -956,12 +956,12 @@ plt.show()
 model_grp <- survfit(Surv(as.numeric(Length_Stay), Term.1..Stay.0.) ~ Group, data = train)
 
 grp_plot <- autoplot(model_grp) + labs(x = 'Time', y = 'Survival Probability (%)', title = 'XYZ') +
-				theme(plot.title = element_text(hjust = 0.5), title = element_text(size = 14, face = 'bold'),
-					     axis.text.x = element_text(face = 'bold', size = 12),
-					     axis.text.y = element_text(face = 'bold', size = 12))
+				  theme(plot.title = element_text(hjust = 0.5), title = element_text(size = 14, face = 'bold'),
+					axis.text.x = element_text(face = 'bold', size = 12),
+					axis.text.y = element_text(face = 'bold', size = 12))
 cols <- c('1' = 'green', '0' = 'red')
 grp_plot_label <- grp_plot +  guides(fill = FALSE) + labs(color = 'Group') + 
-				              scale_color_manual(values = cols, breaks = c('1', '0'), labels = c('Grp A', 'Grp B'))
+		  scale_color_manual(values = cols, breaks = c('1', '0'), labels = c('Grp A', 'Grp B'))
 print(grp_plot_label)                 
                  
                  
