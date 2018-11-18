@@ -134,6 +134,11 @@ df.iloc[0:28, 16:40]
 #find unique value of a column in a dataframe
 df['colname'].unique()
 
+
+#unique value of an array
+set(arry)
+
+
 #find unique, sorted, no NaN value of a column in a dataframe
 uniq_sort_df = sorted(df['colname'].dropna().unique())
 
