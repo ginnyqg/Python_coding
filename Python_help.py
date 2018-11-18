@@ -4,6 +4,12 @@ train = pd.read_csv("directory")
 #when csv text in spanish, not utf-8
 df = pd.read_csv(file_path, encoding='latin-1')
 
+#import pickle object
+import pandas as pd
+import pickle
+
+df = pd.read_pickle('filePath.pkl')
+df
 
 #print dim of data
 print("Training set has {0[0]} rows and {0[1]} columns".format(train.shape))
