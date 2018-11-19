@@ -654,7 +654,7 @@ for counter, file in enumerate(glob.glob("csv_filename_matching*")):
     namedf = pd.read_csv(file)
     results = results.append(namedf)
  
-results.to_csv('path')
+results.to_csv('path', header = True, index = False)
                  
 
 #get first 80% of data from files in this directory that start with specific string
