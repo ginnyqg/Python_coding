@@ -119,7 +119,24 @@ for i in range(len(x)):
 #     fig.savefig(filepath + str(plot_title) + '.png')
           
 
+          
+          
+#https://matplotlib.org/gallery/subplots_axes_and_figures/ganged_plots.html          
+fig = plt.figure()
+# set height ratios for sublots
+gs = gridspec.GridSpec(2, 1)
+ax0 = plt.subplot(gs[0])
+line0, = ax0.plot(x1[1], y1[1])
 
+ax1 = plt.subplot(gs[1], sharex = ax0)
+line1, = ax1.plot(x2[1], y3[1])
+plt.setp(ax0.get_xticklabels(), visible = False)
+
+##remove vertical gap between subplots
+plt.subplots_adjust(hspace=.0)
+plt.show()
+
+# https://stackoverflow.com/questions/42973223/how-share-x-axis-of-two-subplots-after-they-are-created
 
 
 
