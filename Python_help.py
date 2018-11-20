@@ -17,6 +17,11 @@ print("Training set has {0[0]} rows and {0[1]} columns".format(train.shape))
 #print head of the dataset
 print(train.head())
 
+
+#count by number of occurence of value in a column
+df.colA.value_counts()
+
+
 #check current working directory(in python or jupyter notebook)
 import os
 os.getcwd()
