@@ -228,6 +228,33 @@ plt.title('Heatmap of Correlation Matrix', fontsize = 25)
 
 
 
+#plot density function of Distance_mile for different groups
+plt.figure(figsize = (14, 8))
+
+ax1 = sns.kdeplot(X_mill_r_qfs.Distance_mile[(X_mill_r_qfs['colA'] == 1) & (X_mill_r_qfs['colB'] == 'Abc')], label = 'Big', color = 'b', shade = True)
+ax2 = sns.kdeplot(X_mill_r_qfs.Distance_mile[(X_mill_r_qfs['colA'] == 1) & (X_mill_r_qfs['colB'] == 'Def')], label = 'Medium', color = 'r', shade = True)
+ax3 = sns.kdeplot(X_mill_r_qfs.Distance_mile[X_mill_r_qfs['colA'] == 0], label = 'Small', color = 'g', shade = True)
+
+plt.xlabel('Distance (miles)', fontsize = 16)
+plt.ylabel('Density', fontsize = 16)
+plt.title('XYZ', fontsize = 22, fontweight = "bold")
+
+plt.setp(ax1.get_legend().get_texts(), fontsize = 14)
+                 
+plt.xticks(fontsize = 14)
+plt.yticks(fontsize = 14)
+
+ax1.set_xlim(0, 500)
+ax2.set_xlim(0, 500)
+ax3.set_xlim(0, 500)
+
+plt.show()
+
+
+
+
+
+
 
 
 
