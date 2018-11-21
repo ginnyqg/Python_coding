@@ -75,44 +75,79 @@ py.iplot(fig, filename = 'bar-plot-cnt-PComp')
 # In[4]:
 
 
+# # create horizontal chart: Amount of Value (USD) acquired by Top 7 Tech Companies
 
-# create horizontal chart: Amount of Value (USD) acquired by Top 7 Tech Companies
+# amt_PC = pd.DataFrame(raw.groupby(['ParentCompany'])['Value (USD)'].sum())
+# amt_PC = amt_PC.sort_values(by = 'Value (USD)', ascending = True)
+
+
+# data  = go.Data([
+#                 go.Bar(
+#                 x = amt_PC['Value (USD)'], 
+#                 y = amt_PC.index,
+#                 text = round(amt_PC['Value (USD)']/1000000000, 2),
+#                 textposition = 'outside',
+#                 marker = dict(
+#                         color = '#b8e5dd',
+#                         line = dict(
+#                         color = '#b8e5dd',
+#                         width = 1.5)
+#                         ),
+#                 opacity = 0.8,
+#                 orientation ='h'
+#         )])
+
+# layout = go.Layout(
+#     width = 1000,
+#     height = 500,
+#     title = "<b>Amount of Acquisition (USD) by Top 7 Tech Companies</b>",
+#     yaxis = go.layout.YAxis(
+#     title = 'Value (USD, $B)'
+#     ))
+
+# fig  = go.Figure(data = data, layout = layout)
+# url_2 = py.plot(fig, filename = 'hbar-plot-amt-PComp', auto_open = False)
+# py.iplot(fig, filename = 'hbar-plot-amt-PComp')
+
+
+# In[5]:
+
 
 amt_PC = pd.DataFrame(raw.groupby(['ParentCompany'])['Value (USD)'].sum())
 amt_PC = amt_PC.sort_values(by = 'Value (USD)', ascending = True)
 
-# amt_PC.plot(kind='barh')
-
-data  = go.Data([
-                go.Bar(
-                x = amt_PC['Value (USD)'], 
-                y = amt_PC.index,
-                text = round(amt_PC['Value (USD)']/1000000000, 2),
-                textposition = 'outside',
-                marker = dict(
-                        color = '#b8e5dd',
-                        line = dict(
-                        color = '#b8e5dd',
-                        width = 1.5)
-                        ),
-                opacity = 0.8,
-                orientation ='h'
-        )])
-
-layout = go.Layout(
-    width = 1000,
-    height = 500,
-    title = "<b>Amount of Acquisition (USD) by Top 7 Tech Companies</b>",
-    yaxis = go.layout.YAxis(
-    title = 'Value (USD, $B)'
-    ))
-
-fig  = go.Figure(data = data, layout = layout)
-url_2 = py.plot(fig, filename = 'hbar-plot-amt-PComp', auto_open = False)
-py.iplot(fig, filename = 'hbar-plot-amt-PComp')
+fig = {
+  "data": [
+    {
+      "values": amt_PC['Value (USD)'],
+      "labels": amt_PC.index,
+      "domain": {"x": [0, 1]},
+      "hoverinfo":"label",
+      "hole": .4,
+      "type": "pie"
+    }],
+  "layout": {
+        "title":"<b>Amount of Acquisition (USD) by Top 7 Tech Companies</b>",
+        "annotations": [
+            {
+                "font": {
+                    "size": 20
+                },
+                "showarrow": False,
+                "text": "Top 7",
+                "x": 0.5,
+                "y": 0.5
+            }
+        ]
+    }
+}
 
 
-# In[5]:
+url_2 = py.plot(fig, filename = 'donut', auto_open = False)
+py.iplot(fig, filename = 'donut')
+
+
+# In[6]:
 
 
 x0 = np.random.randn(50)
@@ -132,7 +167,7 @@ url_3 = py.plot(data, filename='box-plots-for-dashboard_2', auto_open=False)
 py.iplot(data, filename='box-plots-for-dashboard_2')
 
 
-# In[6]:
+# In[7]:
 
 
 x0 = np.random.randn(50)
@@ -152,7 +187,7 @@ url_4 = py.plot(data, filename='box-plots-for-dashboard_3', auto_open=False)
 py.iplot(data, filename='box-plots-for-dashboard_3')
 
 
-# In[7]:
+# In[8]:
 
 
 
@@ -232,7 +267,7 @@ box_e = {
 }
 
 
-# In[8]:
+# In[9]:
 
 
 # insert modules
@@ -250,13 +285,13 @@ my_dboard.insert(box_e, 'below', 4)
 my_dboard.get_preview()
 
 
-# In[9]:
+# In[10]:
 
 
 my_dboard['settings']['title'] = 'Tech Company Acquisition Dashboard'
 
 
-# In[10]:
+# In[11]:
 
 
 # my_dboard['settings']['logoUrl'] = 'https://images.plot.ly/language-icons/api-home/python-logo.png'
@@ -266,7 +301,7 @@ my_dboard['settings']['links'].append({'title': 'Github', 'url': 'https://github
 my_dboard['settings']['links'].append({'title': 'Website', 'url': 'https://ginnyqg.github.io'})
 
 
-# In[11]:
+# In[12]:
 
 
 my_dboard['settings']['foregroundColor'] = '#000000'
@@ -283,7 +318,7 @@ my_dboard['settings']['headerFontSize'] = '2.4em'
 my_dboard['settings']['headerFontWeight'] = '600'
 
 
-# In[12]:
+# In[13]:
 
 
 stacked_dboard = dashboard.Dashboard()
@@ -298,13 +333,13 @@ for _ in range(5):
 # stacked_dboard.get_preview()
 
 
-# In[13]:
+# In[14]:
 
 
 stacked_dboard['layout']['size'] = 2400
 
 
-# In[14]:
+# In[15]:
 
 
 py.dashboard_ops.upload(my_dboard, 'Tech Company Acquisition Dashboard')
