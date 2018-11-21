@@ -22,13 +22,15 @@ data  = go.Data([
                 go.Bar(
                 x = cnt_PC.index,
                 y = cnt_PC.PComp,
+                text = cnt_PC.PComp,
+                textposition = 'outside',
                 marker = dict(
-                        color = 'skyblue',
+                        color = 'orange',
                         line = dict(
-                        color = 'skyblue',
+                        color = 'orange',
                         width = 1.5)
                         ),
-#                 opacity = 0.6
+                opacity = 0.6
         )])
 
 layout = go.Layout(
@@ -43,8 +45,6 @@ py.iplot(fig, filename = 'bar-plot-cnt-PComp')
 # cnt_PC = raw.ParentCompany.value_counts()
 # cnt_PC.iplot(kind='bar', yTitle='Count', title='Acquisitions by Top 7 Tech Companies',
 #              filename='bar-plot-cnt-PComp_2')
-
-
 
 
 
