@@ -11,7 +11,7 @@ my_dboard.get_preview()
 
 
 
-#plot value_counts()
+#plot value_counts() in bar chart
 import plotly.plotly as py
 import plotly.graph_objs as go
 
@@ -49,6 +49,59 @@ py.iplot(fig, filename = 'bar-plot-cnt-PComp')
 # cnt_PC = raw.ParentCompany.value_counts()
 # cnt_PC.iplot(kind='bar', yTitle='Count', title='Acquisitions by Top 7 Tech Companies',
 #              filename='bar-plot-cnt-PComp_2')
+
+
+
+
+
+#plot donut chart
+amt_PC = pd.DataFrame(raw.groupby(['ParentCompany'])['Value (USD)'].sum())
+amt_PC = amt_PC.sort_values(by = 'Value (USD)', ascending = True)
+
+fig = {
+  "data": [
+    {
+      "values": amt_PC['Value (USD)'],
+      "labels": amt_PC.index,
+      "domain": {"x": [0, 1]},
+      "hoverinfo":"label",
+      "hole": .4,
+      "type": "pie"
+    }],
+  "layout": {
+        "title":"<b>Amount of Acquisition (USD) by Top 7 Tech Companies</b>",
+        "annotations": [
+            {
+                "font": {
+                    "size": 20
+                },
+                "showarrow": False,
+                "text": "Top 7",
+                "x": 0.5,
+                "y": 0.5
+            }
+        ]
+    }
+}
+
+
+url_2 = py.plot(fig, filename = 'donut', auto_open = False)
+py.iplot(fig, filename = 'donut')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
