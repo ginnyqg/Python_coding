@@ -34,8 +34,12 @@ data  = go.Data([
         )])
 
 layout = go.Layout(
-    title = "Acquisitions by Top 7 Tech Companies"
-    )
+    width = 1000,
+    height = 600,
+    title = "<b>Acquisitions by Top 7 Tech Companies</b>",
+    yaxis = go.layout.YAxis(
+    title = 'Count'
+    ))
 
 fig  = go.Figure(data = data, layout = layout)
 url_1 = py.plot(fig, filename = 'bar-plot-cnt-PComp', auto_open = False)
@@ -45,6 +49,14 @@ py.iplot(fig, filename = 'bar-plot-cnt-PComp')
 # cnt_PC = raw.ParentCompany.value_counts()
 # cnt_PC.iplot(kind='bar', yTitle='Count', title='Acquisitions by Top 7 Tech Companies',
 #              filename='bar-plot-cnt-PComp_2')
+
+
+
+
+
+
+
+
 
 
 
