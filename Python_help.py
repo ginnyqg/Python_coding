@@ -4,6 +4,13 @@ train = pd.read_csv("directory")
 #when csv text in spanish, not utf-8
 df = pd.read_csv(file_path, encoding='latin-1')
 
+#import excel, choose header row
+os.chdir('path')
+raw = pd.read_excel('abc.xls', header = 1)
+
+#exclude first column
+data = raw.iloc[:, 1:]
+
 #import pickle object
 import pandas as pd
 import pickle
