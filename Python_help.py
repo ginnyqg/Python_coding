@@ -994,6 +994,14 @@ lines = keys_file.readlines()
 disguised_token = lines[0].rstrip()                 
 		 
 		 
+#install tensorflow GPU
+https://www.quantinsti.com/blog/install-tensorflow-gpu
+
+		 
+		 
+		 
+		 
+		 
 		 
 		 
 		 
