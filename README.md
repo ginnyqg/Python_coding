@@ -1,4 +1,6 @@
 # Python_coding
 
-* "sys.executable" -m pip install --upgrade pkg
+* mac: "sys.executable" -m pip install --upgrade pkg
+* windows: pip install --target=path pkg
+
 
