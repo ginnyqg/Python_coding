@@ -998,8 +998,9 @@ disguised_token = lines[0].rstrip()
 https://www.quantinsti.com/blog/install-tensorflow-gpu
 
 		 
-		 
-		 
+#create tf-GPU environment on windonws
+conda create -n tensorflow_gpuenv tensorflow-gpu
+conda activate tensorflow_gpuenv 
 		 
 		 
 		 
