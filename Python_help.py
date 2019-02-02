@@ -675,7 +675,40 @@ for counter, file in enumerate(glob.glob('csv_filename_matching*')):
     namedf = pd.read_csv(file)
     results = results.append(namedf[: round(0.8 * (namedf.shape[0]))])
                  
-                               
+
+			 
+import glob
+import errno
+import os
+import pandas as pd
+		 
+		 
+path = 'folder_path'           
+os.chdir(path)
+
+results = pd.DataFrame([])
+
+for counter, file in enumerate(glob.glob("turnstile_*")):
+    namedf = pd.read_csv(file, delimiter=",", header=None)
+#     print(namedf.shape)
+    results = results.append(namedf)
+    
+results.columns = ['C/A','UNIT','SCP',
+                  'DATE1','TIME1','DESC1','ENTRIES1','EXITS1',
+                  'DATE2','TIME2','DESC2','ENTRIES2','EXITS2',
+                  'DATE3','TIME3','DESC3','ENTRIES3','EXITS3',
+                  'DATE4','TIME4','DESC4','ENTRIES4','EXITS4',
+                  'DATE5','TIME5','DESC5','ENTRIES5','EXITS5',
+                  'DATE6','TIME6','DESC6','ENTRIES6','EXITS6',
+                  'DATE7','TIME7','DESC7','ENTRIES7','EXITS7',
+                  'DATE8','TIME8','DESC8','ENTRIES8','EXITS8']
+print(results.shape)
+print(results.head(20))
+ 		 
+		 
+		 
+		 
+		 
                 
 #check and return columns names whose value is all null
 results.columns[results.isnull().all()]                 
