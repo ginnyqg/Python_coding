@@ -651,6 +651,11 @@ plt.title('Heatmap of Correlation Matrix', fontsize = 25)
 #partition big dataset with smaller dataset based on unique value in a column          
 dict_of_items = {item: df_item for item, df_item in df.groupby('Items')
 
+		 
+#groupby, count number of rows, sort by largest first		 
+df.groupby(['ColA', 'ColB']).size().reset_index(name = 'count').sort_values(['count'], ascending = False)		 
+		 
+		 
 # access first item of first value of key from a dictionary
 list(dict['key1'][0])[0]
 
