@@ -809,6 +809,12 @@ print(dict_t)
 #rename column name                 
 df.rename(columns = {'oldNameColA': 'newNameColA', 'oldNameColB': 'newNameColB'}, inplace = True)   
 
+		 
+#replace column entries with NaN when column meet a condition
+for i in range(8):
+    df.loc[pd.to_datetime(df['ColA' + str(i + 1)]) < '2018-01-01', ['ColB' + str(i + 1), 'ColC' + str(i + 1), 'ColD' + str(i + 1)]] = np.nan
+df
+		 
                  
 #find rows where colA is null in df                 
 df[df['colA'].isnull()] 
