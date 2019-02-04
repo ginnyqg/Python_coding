@@ -153,6 +153,10 @@ df.iloc[0:28, 16:40]
 df['colname'].unique()
 
 
+#retrieve value of a cell in ColI after satisfying other conditions
+df['ColI'][(df['ColA'] == 'ABC') & (df['ColB'] == 'DEF') & (df['ColC'] == 'GHI')]
+
+
 #unique value of an array
 set(arry)
 
