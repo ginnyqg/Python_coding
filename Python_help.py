@@ -170,6 +170,11 @@ df[[i for i in df.columns.get_values() if i.startswith('Abc')]]
 #find column names in df
 list(df)
 
+
+#find column index from column name, return an interger
+df.columns.get_loc("colName")
+
+
 #widen pandas output
 import pandas as pd
 # pd.set_option('display.height', 1000)
