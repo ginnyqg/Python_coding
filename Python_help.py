@@ -405,6 +405,10 @@ for i in list(df):
           
 ##################################### matplotlib #####################################
 
+#plot histogram of a df column
+df['colA'].plot.hist()	  
+	  
+	  
 #plot use ggplot style
 plt.style.use('ggplot')
           
