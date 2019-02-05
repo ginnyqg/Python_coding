@@ -37,7 +37,6 @@ os.getcwd()
 os.chdir('path')
 
 
-
 #check system path
 import sys
 sys.path
