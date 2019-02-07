@@ -1059,8 +1059,34 @@ conda create -n tensorflow_gpuenv tensorflow-gpu
 conda activate tensorflow_gpuenv 
 		 
 		 
-		 
-		 
+#count number between first occurence and last occurence
+num_row_turn = 0
+num_row_cum = 0
+
+for i in range(len(df_turnstile_row_cnt['count'])):
+    entries_start = results_020113_ri.iloc[num_row_cum, results_020113_ri.columns.get_loc(results_020113_ri.iloc[num_row_cum].first_valid_index()) + 3]
+    exits_start = results_020113_ri.iloc[num_row_cum, results_020113_ri.columns.get_loc(results_020113_ri.iloc[num_row_cum].first_valid_index()) + 4]
+    
+    num_row_turn = df_turnstile_row_cnt['count'][i]
+    
+    entries_end = results_020113_ri.iloc[num_row_cum + num_row_turn - 1, results_020113_ri.columns.get_loc(results_020113_ri.iloc[num_row_cum + num_row_turn - 1].last_valid_index()) - 1]
+    exits_end = results_020113_ri.iloc[num_row_cum + num_row_turn - 1, results_020113_ri.columns.get_loc(results_020113_ri.iloc[num_row_cum + num_row_turn - 1].last_valid_index())]
+
+    
+    print('for row ' + str(i + 1) + ' in df_turnstile_row_cnt (identify a specific turnstile)')
+    print('num of records for this turnstile on Feb 1, 2013 is: ' + str(num_row_turn))
+
+    num_entries = entries_end - entries_start
+    print('num of entries: ' + str(num_entries))
+
+    num_exits = exits_end - exits_start
+    print('num of exits: ' + str(num_exits))
+    print('\n')
+    
+    num_row_cum += num_row_turn
+    
+    
+    		 
 		 
 		 
 		 
