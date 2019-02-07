@@ -1103,7 +1103,9 @@ df_results['num_exits'] = c3
 df_results['date'] = c4
 
 
-    
+#check what packages installed, (continuaslly uninstall pkg if needed)		 
+pip freeze
+pip uninstall pkg
     
     		 
 		 
