@@ -1059,9 +1059,14 @@ conda create -n tensorflow_gpuenv tensorflow-gpu
 conda activate tensorflow_gpuenv 
 		 
 		 
-#count number between first occurence and last occurence
+#count number of occurrences for entries and exits for each item
+
 num_row_turn = 0
 num_row_cum = 0
+c1 = []
+c2 = []
+c3 = []
+c4 = []
 
 for i in range(len(df_turnstile_row_cnt['count'])):
     entries_start = results_020113_ri.iloc[num_row_cum, results_020113_ri.columns.get_loc(results_020113_ri.iloc[num_row_cum].first_valid_index()) + 3]
@@ -1084,6 +1089,20 @@ for i in range(len(df_turnstile_row_cnt['count'])):
     print('\n')
     
     num_row_cum += num_row_turn
+    
+    c1.append(i)
+    c2.append(num_entries)
+    c3.append(num_exits)
+    c4.append('02-01-2013')
+    
+    
+df_results = pd.DataFrame()
+df_results['turn_index'] = c1
+df_results['num_entries'] = c2   
+df_results['num_exits'] = c3
+df_results['date'] = c4
+
+
     
     
     		 
