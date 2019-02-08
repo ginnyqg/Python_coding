@@ -1137,7 +1137,8 @@ pip freeze
 pip uninstall pkg
     
     		 
-		 
+#get top x value of colA in df
+df.nlargest(x, 'colA')
 		 
 		 
 		 
