@@ -1066,24 +1066,33 @@ conda activate tensorflow_gpuenv
 		 
 #count number of occurrences for entries and exits for each item
 
-num_row_turn = 0
-num_row_cum = 0
+df_results = pd.DataFrame()
 c1 = []
 c2 = []
 c3 = []
 c4 = []
+c5 = []
+c6 = []
+c7 = []
+c8 = []
+c9 = []
+c10 = []
+c11 = []
 
-for i in range(len(df_turnstile_row_cnt['count'])):
+num_row_turn = 0
+num_row_cum = 0
+
+for i in range(len(df_turnstile_row_cnt_sort['count'])):
     entries_start = results_020113_ri.iloc[num_row_cum, results_020113_ri.columns.get_loc(results_020113_ri.iloc[num_row_cum].first_valid_index()) + 3]
     exits_start = results_020113_ri.iloc[num_row_cum, results_020113_ri.columns.get_loc(results_020113_ri.iloc[num_row_cum].first_valid_index()) + 4]
     
-    num_row_turn = df_turnstile_row_cnt['count'][i]
+    num_row_turn = df_turnstile_row_cnt_sort['count'][i]
     
     entries_end = results_020113_ri.iloc[num_row_cum + num_row_turn - 1, results_020113_ri.columns.get_loc(results_020113_ri.iloc[num_row_cum + num_row_turn - 1].last_valid_index()) - 1]
     exits_end = results_020113_ri.iloc[num_row_cum + num_row_turn - 1, results_020113_ri.columns.get_loc(results_020113_ri.iloc[num_row_cum + num_row_turn - 1].last_valid_index())]
 
     
-    print('for row ' + str(i + 1) + ' in df_turnstile_row_cnt (identify a specific turnstile)')
+    print('for row ' + str(i) + ' in df_turnstile_row_cnt_sort (identify a specific turnstile)')
     print('num of records for this turnstile on Feb 1, 2013 is: ' + str(num_row_turn))
 
     num_entries = entries_end - entries_start
@@ -1092,20 +1101,35 @@ for i in range(len(df_turnstile_row_cnt['count'])):
     num_exits = exits_end - exits_start
     print('num of exits: ' + str(num_exits))
     print('\n')
+        
+    c1.append(results_020113_ri_dedup.iloc[i, 0])
+    c2.append(results_020113_ri_dedup.iloc[i, 1])
+    c3.append(results_020113_ri_dedup.iloc[i, 2])
+    c4.append(num_entries)
+    c5.append(num_exits)
+    c6.append(entries_start)
+    c7.append(entries_end)
+    c8.append(exits_start)
+    c9.append(exits_end)
+    c10.append(num_row_turn)
+    c11.append('02-01-2013')
     
     num_row_cum += num_row_turn
+    i += 1
     
-    c1.append(i)
-    c2.append(num_entries)
-    c3.append(num_exits)
-    c4.append('02-01-2013')
-    
-    
-df_results = pd.DataFrame()
-df_results['turn_index'] = c1
-df_results['num_entries'] = c2   
-df_results['num_exits'] = c3
-df_results['date'] = c4
+df_results['turnstile_CA'] = c1
+df_results['turnstile_UNIT'] = c2
+df_results['turnstile_SCP'] = c3
+df_results['num_entries'] = c4
+df_results['num_exits'] = c5
+df_results['entries_start'] = c6
+df_results['entries_end'] = c7
+df_results['exits_start'] = c8
+df_results['exits_end'] = c9
+df_results['num_rows'] = c10
+df_results['date'] = c11
+
+
 
 
 #check what packages installed, (continually uninstall pkg if needed)		 
