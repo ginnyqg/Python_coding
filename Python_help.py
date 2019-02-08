@@ -144,6 +144,11 @@ dataset2 = dataset1.loc[dataset1['colname'].str.startswith('abc')]
 #select subset of data based on condition in a column which equals a certain string
 dataset2 = dataset1.loc[dataset1['colname'] == 'abc']
 
+
+#check to see if two columns of a dataframe are equal
+df['col1'].equals(df['col2'])
+
+
 #select subset of data based on location index
 df.iloc[0:28, 16:40]
 
