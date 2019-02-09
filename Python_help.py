@@ -712,7 +712,7 @@ os.chdir(path)
 
 results = pd.DataFrame()
 
-for file in glob.glob("*.txt"):
+for file in glob.glob("turnstile_*.txt"):
     namedf = pd.read_csv(file)
     print(namedf.shape)
     results = results.append(namedf)
