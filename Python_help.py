@@ -867,8 +867,10 @@ if any(i >= thres for i in rmse):
 #convert list to string                 
 ''.join(df['Abc'].unique())
 
-
-                 
+		 
+#create new column from existing columns in dataframe
+df['new_col_name'] = df['colA'] - df['colB'] 
+		 
                  
 #create a dictionary, if a key already exist, append value to it; if not, create new key, and corresponding value                 
 dict_full = {}
