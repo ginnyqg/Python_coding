@@ -705,15 +705,18 @@ import os
 import pandas as pd
 		 
 		 
-path = 'folder_path'           
+#read and append separate txt files to 1 dataframe results, print shape of dataframe
+
+path = 'Dir'           
 os.chdir(path)
 
-results = pd.DataFrame([])
+results = pd.DataFrame()
 
-for counter, file in enumerate(glob.glob("turnstile_*")):
-    namedf = pd.read_csv(file, delimiter=",", header=None)
-#     print(namedf.shape)
+for file in glob.glob("*.txt"):
+    namedf = pd.read_csv(file)
+    print(namedf.shape)
     results = results.append(namedf)
+    results = results[namedf.columns]
     
 results.columns = ['C/A','UNIT','SCP',
                   'DATE1','TIME1','DESC1','ENTRIES1','EXITS1',
@@ -725,11 +728,8 @@ results.columns = ['C/A','UNIT','SCP',
                   'DATE7','TIME7','DESC7','ENTRIES7','EXITS7',
                   'DATE8','TIME8','DESC8','ENTRIES8','EXITS8']
 print(results.shape)
-print(results.head(20))
- 		 
-		 
-		 
-		 
+print(results.head(10))
+
 		 
                 
 #check and return columns names whose value is all null
