@@ -304,6 +304,11 @@ df
 #convert datatype from str to datetime
 df['new_colName'] = pd.to_datetime(df['colName'])
 
+	  
+#join by column name, SQL-like, suffix control column name if columna name same in both dfs
+df_merge = pd.merge(df_left, df_right, on = 'colA', how = 'left', suffixes=('_begin', '_end'))
+df_merge
+	  
 
 #left join, SQL-like
 df_new = pd.merge(df_ontheleft, df_ontheright, how = 'left', on = ['commonColA', 'commonColB'])
