@@ -707,16 +707,15 @@ import pandas as pd
 		 
 #read and append separate txt files to 1 dataframe results, print shape of dataframe
 
-path = 'Dir'           
+path = 'dir'           
 os.chdir(path)
 
 results = pd.DataFrame()
 
-for file in glob.glob("turnstile_*.txt"):
-    namedf = pd.read_csv(file)
-    print(namedf.shape)
+for file in glob.glob("turnstile_*"):
+    namedf = pd.read_csv(file, usecols = range(0, 43), header = None)
+#     print(namedf.shape)
     results = results.append(namedf)
-    results = results[namedf.columns]
     
 results.columns = ['C/A','UNIT','SCP',
                   'DATE1','TIME1','DESC1','ENTRIES1','EXITS1',
@@ -729,6 +728,7 @@ results.columns = ['C/A','UNIT','SCP',
                   'DATE8','TIME8','DESC8','ENTRIES8','EXITS8']
 print(results.shape)
 print(results.head(10))
+
 
 		 
                 
