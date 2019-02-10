@@ -407,6 +407,11 @@ df['time_down'].dt.total_seconds() / 3600
 #extract part of string for all strings in a list
 [i[-4 : -1] for i in listA]
 
+	  
+#create a new column 'month', extract first 2 chars from another column 'date' in df	  
+df['month'] = df.date.str[:2]	  
+
+	  
 #drop duplicates in both columns
 df[['colA', 'colB']].drop_duplicates()
 
