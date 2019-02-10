@@ -691,6 +691,8 @@ dict_of_items = {item: df_item for item, df_item in df.groupby('Items')
 #groupby, count number of rows, sort by largest first		 
 df.groupby(['ColA', 'ColB']).size().reset_index(name = 'count').sort_values(['count'], ascending = False)		 
 		 
+#groupby, do aggregation on multiple columns		 
+df.groupby('ColA').agg({'ColC' : 'sum', 'ColD' : 'sum'})
 		 
 # access first item of first value of key from a dictionary
 list(dict['key1'][0])[0]
