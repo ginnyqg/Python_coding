@@ -251,9 +251,8 @@ ax3.set_xlim(0, 500)
 plt.show()
 
 
-
-
-
+#color name
+https://matplotlib.org/gallery/color/named_colors.html
 
 
 
