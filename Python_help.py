@@ -333,6 +333,10 @@ X['Flag'] = np.where(pd.notna(X['Date']), 1, 0)
           
 #check number of NAs in each column of a dataframe
 df.isnull().sum()
+  
+	  
+#count number of missing value for each column, sort by columns with most NaN
+df_select.isnull().sum().sort_values(ascending = False)
 
           
 #return dataframe where colA has NaN
