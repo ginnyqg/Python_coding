@@ -1173,12 +1173,59 @@ pip uninstall pkg
 df.nlargest(x, 'colA')
 		 
 		 
+#PCA		 
+from sklearn.decomposition import PCA
+
+pca = PCA(n_components = 5)
+pca_result = pca.fit_transform(df_select_inter_fill.values)
+
+df_select_inter_fill['pca-one'] = pca_result[:,0]
+df_select_inter_fill['pca-two'] = pca_result[:,1] 
+df_select_inter_fill['pca-three'] = pca_result[:,2]
+
+print('Explained variation per principal component: {}'.format(pca.explained_variance_ratio_))
+		 
+		 
+#Viz PCA
+from ggplot import *
+
+chart = ggplot(df_select_inter_fill, aes(x='pca-one', y='pca-two') ) \
+        + geom_point(size = 75, alpha = 0.8) \
+        + ggtitle("First and Second Principal Components colored by digit")
+chart
+
+		 
+#tSNE                 
+import time
+from sklearn.manifold import TSNE
+
+n_sne = 10000
+
+time_start = time.time()
+
+tsne = TSNE(n_components=2, verbose=1, perplexity=40, n_iter=300)
+tsne_pca_results = tsne.fit_transform(pca_result)
+
+print('t-SNE done! Time elapsed: {} seconds'.format(time.time()-time_start))
+
+		 	 
+#Visualize tSNE
+df_tsne = None
+df_tsne = df_select_inter_fill.copy()
+df_tsne['x-tsne-pca'] = tsne_pca_results[:,0]
+df_tsne['y-tsne-pca'] = tsne_pca_results[:,1]
+
+chart = ggplot(df_tsne, aes(x='x-tsne-pca', y='y-tsne-pca') ) \
+        + geom_point(size=70, alpha=0.1) \
+        + ggtitle("tSNE dimensions colored by Digit (PCA)")
+chart
+
+		 
+		 
+
 		 
 		 
 		 
-                 
-                 
-                 
                  
                  
                  
