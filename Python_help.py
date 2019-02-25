@@ -223,7 +223,14 @@ dataset1[(dataset1['col1'] == 'abc) & (dataset1['col2'] == 'def')]['col3']
 #below will return the first cell in column 'col3' in the subset of dataframe
 dataset1[(dataset1['col1'] == 'abc) & (dataset1['col2'] == 'def')]['col3'].iloc[0]
 
-          
+	  
+	  
+lats, lons = [],[]
+
+for index, row in df_select.iterrows():
+    lats.append(float(df_select['LAT']))
+    lons.append(float(df_select['LONG']))
+              
           
 #python index of these rows whose columns meet certain conditions
 dataset2 = dataset1.loc[(dataset1['col1'] == 'abc') | 
