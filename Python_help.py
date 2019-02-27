@@ -1228,7 +1228,25 @@ chart = ggplot(df_tsne, aes(x='x-tsne-pca', y='y-tsne-pca') ) \
 chart
 
 		 
-		 
+# Create figure and axes (9 significant variables, arranged 3 by 3)
+f, axs = plt.subplots(nrows=3, ncols=3, figsize=(12, 12))
+# Make the axes accessible with single indexing
+axs = axs.flatten()
+# Start the loop over all the variables of interest
+for i, col in enumerate(sig_var):
+    # select the axis where the map will go
+    ax = axs[i]
+    # Plot the map
+    Plot_by_sigVar = gdf.plot(column=col, ax=ax, scheme='Quantiles', linewidth=0, cmap='Blues')
+    # Remove axis clutter
+    ax.set_axis_off()
+    # Set the axis title to the name of variable being plotted
+    ax.set_title(col)
+# Display the figure
+plt.show()
+# Save the figure
+fig = Plot_by_sigVar.get_figure()
+# fig.savefig("Figs/Plot_by_sigVar.png")		 
 
 		 
 		 
