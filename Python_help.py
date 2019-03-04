@@ -818,7 +818,7 @@ results.shape
                  
 list(results)
                  
-#drop columns in dataframe by column name
+#select dataframe by excluding columns using column name
 df.loc[:, ~df.columns.isin(['col1', 'col2'])]
 		 
 
