@@ -411,7 +411,7 @@ df_interpolate_w_rule = df.iloc[:, 3:][mask == True]
 #put back first 3 columns together with channel value and finish the imputation, call the dataframe df_imputed
 first_3_col = df_a.iloc[:, 0:3]
 
-#put two dataframes together, side by side
+#put two dataframes together, side by side. If set 'ignore_index = True' inside concat, will drop column names to index numbers
 df_imputed = pd.concat([first_3_col, df_interpolate_w_rule], axis = 1)
 
           
