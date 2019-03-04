@@ -818,7 +818,11 @@ results.shape
                  
 list(results)
                  
-      
+#drop columns in dataframe by column name
+df.loc[:, ~df.columns.isin(['col1', 'col2'])]
+		 
+
+		 
 #time how long a step in ipython notebook takes
  %time (code)
                  
