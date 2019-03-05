@@ -255,7 +255,46 @@ plt.show()
 https://matplotlib.org/gallery/color/named_colors.html
 
 
+#GIS plot
+import shapefile
 
+#import shp file
+sf = shapefile.Reader("Abc.shp")
+# print('number of shapes imported: ' + str(len(sf.shapes())))
+
+# Setup figure and ax
+f, ax = plt.subplots(1, figsize = (12, 10))
+
+#plot counties as background layer
+ax = plt.axes()
+for shape in list(sf.iterShapes()):
+    x_lon = np.zeros((len(shape.points), 1))
+    y_lat = np.zeros((len(shape.points), 1))
+    for ip in range(len(shape.points)):
+        x_lon[ip] = shape.points[ip][0]
+        y_lat[ip] = shape.points[ip][1]
+    plt.plot(x_lon, y_lat, color = '#E2E3E3', zorder = 1)
+
+
+# Plot unique values choropleth including a legend and with no boundary lines
+cluster_by_kmeans = gdf.plot(column = 'kncls', categorical = True, legend = True, linewidth = 0, ax = ax, zorder = 2)
+# Remove axis
+# ax.set_axis_off()
+# Keep axes proportionate
+plt.axis('equal')
+
+# Add title
+plt.title('Clustering using KMeans')
+
+# Narrow down counties range to match grid map range
+plt.xlim(-100, -101)
+plt.ylim(30, 31)
+
+# Display the map
+plt.show()
+# Save the figure
+# fig = cluster_by_kmeans.get_figure()
+# fig.savefig("Figs/cluster_by_kmeans.png")
 
 
 
