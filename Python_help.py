@@ -1285,6 +1285,39 @@ fig = Plot_by_sigVar.get_figure()
 
 		 
 		 
+#find closest existing coordinate
+import fiona
+from shapely.geometry import shape
+import numpy as np
+
+import pandas as pd
+from scipy.spatial import distance
+
+
+#find closest grid coordinate for the well coordinate
+def closest_node(well_node, grid_nodes):
+    closest_index = distance.cdist([well_node], grid_nodes).argmin()
+    print(grid_nodes[closest_index])
+
+algo_norm_10_label = pd.read_csv("abc.csv", header = 0)
+grid_coord = algo_norm_10_label.geometry
+
+# print(grid_coord.head())
+
+#split Point geometry object to separate long, lat columns
+coord_df = grid_coord.str.strip('POINT').str.strip(' (').str.strip(')').str.split(' ', expand = True).rename(columns = {0 : 'Longitude', 1 : 'Latitude'})
+
+#put long, lat together as a tuple, convert to array
+grid_coord_array = np.array(list(zip(pd.to_numeric(coord_df.Longitude), pd.to_numeric(coord_df.Latitude))))
+# print(grid_coord_array[ : 5])
+
+
+well_coord = (100, 30)
+
+closest_node(well_coord, grid_coord_array)
+
+# https://codereview.stackexchange.com/questions/28207/finding-the-closest-point-to-a-list-of-points
+
 		 
                  
                  
