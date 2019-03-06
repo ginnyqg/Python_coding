@@ -1309,8 +1309,6 @@ coord_df = grid_coord.str.strip('POINT').str.strip(' (').str.strip(')').str.spli
 
 #put long, lat together as a tuple, convert to array
 grid_coord_array = np.array(list(zip(pd.to_numeric(coord_df.Longitude), pd.to_numeric(coord_df.Latitude))))
-# print(grid_coord_array[ : 5])
-
 
 well_coord = (100, 30)
 
