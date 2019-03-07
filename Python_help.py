@@ -231,6 +231,20 @@ for index, row in df_select.iterrows():
     lats.append(float(df_select['LAT']))
     lons.append(float(df_select['LONG']))
 
+
+#append 2 array results to dataframe simultaneously	  
+grid_label = pd.DataFrame()
+
+for w in well_coord:
+	# print(closest_node(w, grid_coord_array))
+	df_Longitude = pd.DataFrame({'Longitude' : [closest_node(w, grid_coord_array)[0]]})
+	df_Latitude = pd.DataFrame({'Latitude' : [closest_node(w, grid_coord_array)[1]]})
+	grid_long_lat = pd.concat([df_Longitude, df_Latitude], axis = 1)
+	grid_label = grid_label.append(grid_long_lat, ignore_index = True)
+print(grid_label)
+print(grid_label.shape)
+	  
+	  
 	  
 # How much to zoom from coordinates (in degrees)
 zoom_scale = 0
