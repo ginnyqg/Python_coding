@@ -1331,8 +1331,33 @@ closest_node(well_coord, grid_coord_array)
 # https://codereview.stackexchange.com/questions/28207/finding-the-closest-point-to-a-list-of-points
 
 		 
+#ConvexHull, get the boundary for points
+from shapely.geometry import Polygon, Point
+from scipy.spatial import ConvexHull
+
+grid_poly = Polygon(grid_coord_array)
+
+#plot the convex hull of the grid coordinate points for the geo map
+import matplotlib.pyplot as plt
+plt.plot(grid_coord_array[grid_poly.vertices, 0], grid_coord_array[grid_poly.vertices, 1], 'r--', lw = 2)
+plt.plot(grid_coord_array[grid_poly.vertices[0], 0], grid_coord_array[grid_poly.vertices[0], 1], 'ro')
+plt.show()
+
+
+#adding a column in_polygon to check whether each well point is within the boundary
+df["in_polygon"] = df.apply(lambda row: Polygon(grid_poly).contains(Point(row["well_Long"], row["well_Lat"])), axis = 1)
+print(df.head())                 
                  
                  
                  
                  
-                 
+
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
