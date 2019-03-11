@@ -1,3 +1,6 @@
+#set seed
+np.random.seed(1234)
+
 #import csv
 train = pd.read_csv("directory")
 
