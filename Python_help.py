@@ -1349,7 +1349,17 @@ df["in_polygon"] = df.apply(lambda row: Polygon(grid_poly).contains(Point(row["w
 print(df.head())                 
                  
                  
-                 
+#convert array of coordinate to 2 columns in dataframe
+df = pd.DataFrame()
+
+for cor_pair in coord_hull:
+	h_Long = pd.DataFrame({'hull_Long' : [cor_pair[0]]})
+	h_Lat = pd.DataFrame({'hull_Lat' : [cor_pair[1]]})
+	h_long_lat = pd.concat([h_Long, h_Lat], axis = 1)
+	df = df.append(h_long_lat, ignore_index = True)
+
+# print(df.head())
+# print(df.shape)                 
                  
 
 		 
