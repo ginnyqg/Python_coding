@@ -763,6 +763,16 @@ list(dict['key1'][0])[0]
 
                  
 #merge several csvs into 1 csv
+import numpy as np
+import pandas as pd
+import glob
+		 
+path = r"C:\"
+consolidate_df = pd.concat([pd.read_csv(f, header = 0) for f in glob.glob(path + r"\file_name_*.csv")], axis = 1, 
+                      ignore_index = True)		 
+		 
+
+		 
 import pandas as pd
 import glob, os
  
