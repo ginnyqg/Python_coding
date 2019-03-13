@@ -167,6 +167,9 @@ df['ColI'][(df['ColA'] == 'ABC') & (df['ColB'] == 'DEF') & (df['ColC'] == 'GHI')
 #unique value of an array
 set(arry)
 
+#return list with unique items from a list with duplicated items
+list(set(List_A))
+
 
 #find unique, sorted, no NaN value of a column in a dataframe
 uniq_sort_df = sorted(df['colname'].dropna().unique())
