@@ -1379,7 +1379,19 @@ for cor_pair in coord_hull:
                  
 
 		 
-		 
+	if algo == GaussianMixture:
+			#predict probability of label from model, algo_labels_prob is an array
+			algo_labels_prob = algoncls.predict_proba(gdf[sig_var])
+			
+			#find probability of grid belong to which cluster for gmm
+			gmm_prob_df = pd.DataFrame()
+			for n in list(range(nclust)):
+				gmm_prob_df = pd.concat([gmm_prob_df, pd.DataFrame({'gmm_cls_' + str(n): algo_labels_prob[ : , n]})], axis = 1)
+			print(gmm_prob_df.head())
+
+			#merge cluster labels from algos, concat with probability of grid label from GMM
+			gdf_gmm_prob = pd.concat([gdf, gmm_prob_df], axis = 1)
+			print(gdf_gmm_prob.head())	 
 		 
 		 
 		 
