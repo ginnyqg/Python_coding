@@ -1378,24 +1378,23 @@ for cor_pair in coord_hull:
 # print(df.shape)                 
                  
 
-		 
-	if algo == GaussianMixture:
-			#predict probability of label from model, algo_labels_prob is an array
-			algo_labels_prob = algoncls.predict_proba(gdf[sig_var])
-			
-			#find probability of grid belong to which cluster for gmm
-			gmm_prob_df = pd.DataFrame()
-			for n in list(range(nclust)):
-				gmm_prob_df = pd.concat([gmm_prob_df, pd.DataFrame({'gmm_cls_' + str(n): algo_labels_prob[ : , n]})], axis = 1)
-			print(gmm_prob_df.head())
+#predict probability of point belongs to a cluster of gmm
+##fit data to the gmm model
+algoncls = GaussianMixture(n_components = nclust, init_params = 'kmeans').fit(df_0[X])
 
-			#merge cluster labels from algos, concat with probability of grid label from GMM
-			gdf_gmm_prob = pd.concat([gdf, gmm_prob_df], axis = 1)
-			print(gdf_gmm_prob.head())	 
+#predict probability of point, algo_labels_prob is an array
+algo_labels_prob = algoncls.predict_proba(df_0[X])
+
+#construct a df to collect probability for clusters for a point based on number of clusters used in the algo, nclust
+gmm_prob_df = pd.DataFrame()
+for n in list(range(nclust)):
+	gmm_prob_df = pd.concat([gmm_prob_df, pd.DataFrame({'gmm_cls_' + str(n): algo_labels_prob[ : , n]})], axis = 1)
+print(gmm_prob_df.head())
+
 		 
 		 
 		 
-		 
+
 		 
 		 
 		 
