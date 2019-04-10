@@ -1397,8 +1397,18 @@ for n in list(range(nclust)):
 print(gmm_prob_df.head())
 
 		 
-		 
-		 
+#time, memory difference
+import mem_profile
+import time
+
+print 'Memory (Before): {}Mb'.format(mem_profile.memory_usage_psutil())
+
+t1 = time.clock()
+function/operation
+t2 = time.clock()
+
+print 'Memory (After) : {}Mb'.format(mem_profile.memory_usage_psutil())
+print 'Took {} Seconds'.format(t2-t1)		 
 
 		 
 		 
