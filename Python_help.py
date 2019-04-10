@@ -1159,6 +1159,11 @@ lines = keys_file.readlines()
 disguised_token = lines[0].rstrip()                 
 		 
 		 
+#write to file
+with open('fileName.txt', 'w') as f:
+    f.write('Hello, Ginny!')
+		 
+		 
 #install tensorflow GPU
 https://www.quantinsti.com/blog/install-tensorflow-gpu
 
