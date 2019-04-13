@@ -1411,5 +1411,11 @@ print('Memory (After) : {}Mb'.format(mem_profile.memory_usage_psutil()))
 print('Took {} Seconds'.format(t2-t1))	 
 
 		 
+#schedule operation frequency
+schedule.every(10).minutes.do(myfunc)	 
+		 
+		 
+		 
+		 
 		 
 		 
