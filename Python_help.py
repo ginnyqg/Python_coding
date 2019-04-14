@@ -1319,6 +1319,10 @@ fig = Plot_by_sigVar.get_figure()
 # fig.savefig("Figs/Plot_by_sigVar.png")		 
 
 		 
+#string format operator
+plt.title("Abc %s def %s" % (Str_Var1, Str_Var2))
+fig.savefig("Figs/abc/def %s/%s_ghi %s_%s.png" % (Str_Var1, Str_Var2, Str_Var1))
+		 		 
 		 
 #find closest existing coordinate
 import fiona
