@@ -1408,7 +1408,7 @@ function/operation
 t2 = time.clock()
 
 print('Memory (After) : {}Mb'.format(mem_profile.memory_usage_psutil()))
-print('Took {} Seconds'.format(t2-t1))	 
+print('Took {} Seconds'.format(t2 - t1))	 
 
 		 
 #schedule operation frequency
