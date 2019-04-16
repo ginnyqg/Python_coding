@@ -1419,6 +1419,22 @@ print('Took {} Seconds'.format(t2 - t1))
 schedule.every(10).minutes.do(myfunc)	 
 		 
 		 
+#module: file contain python code; can be executed or imported
+# https://www.youtube.com/watch?v=NmiwZ4y1iiM
+# from module import variables	 
+
+#class: python code
+class Classname:
+    pass
+
+
+
+
+		 
+		 
+		 
+		 
+		 
 		 
 		 
 		 
