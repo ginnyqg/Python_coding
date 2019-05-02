@@ -7,6 +7,9 @@ train = pd.read_csv("directory")
 #when csv text in spanish, not utf-8
 df = pd.read_csv(file_path, encoding='latin-1')
 
+#read raw, if has weird unicode
+raw = pd.read_csv('file_name.csv', encoding = 'unicode_escape')
+
 #import excel, choose header row (first row, 0)
 os.chdir('path')
 raw = pd.read_excel('abc.xls', header = 0)
@@ -180,10 +183,14 @@ uniq_sort_df = sorted(df['colname'].dropna().unique())
 #find data set whose column names start with 'Abc'
 df[[i for i in df.columns.get_values() if i.startswith('Abc')]]
 
-
 #find column names in df
 list(df)
 
+#find which column names contain certain sub string
+list_to_check = list(raw_select)
+sub = 'EUR'
+
+print("\n".join(s for s in list_to_check if sub.lower() in s.lower()))
 
 #find column index from column name, return an interger
 df.columns.get_loc("colName")
