@@ -296,8 +296,17 @@ plt.show()
 # fig = cluster_by_kmeans.get_figure()
 # fig.savefig("Figs/cluster_by_kmeans.png")
 
+#plot histgrams of 2 variables in a dataframe side by side
+dColA = raw_select['ColA']
+dColB = raw_select['ColB']
 
+fig, axes = plt.subplots(1, 2, figsize = (15, 5))
 
+dColA_hist = dColA.hist(bins = 40, ax = axes[0])
+dColA_hist.title.set_text("VarA skew: {0:.2f}".format(skew(dColA)))
+
+dColB_hist = dColB.hist(bins = 40, ax = axes[1])
+dColB_hist.title.set_text("VarB skew: {0:.2f}".format(skew(dColB)))
 
 
 
