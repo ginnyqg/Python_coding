@@ -8,3 +8,4 @@
   * in jupyter, import sys, sys.path, sys.path.append("path\site-packages")  
 * show all virtual environments available: conda info --envs
 * create new virtual environment using conda: conda create -n custom_virenv_name
+* install pkgs with conda: conda install -n custom_virenv_name pkg_name
