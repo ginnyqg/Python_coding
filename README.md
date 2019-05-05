@@ -1,6 +1,9 @@
 # Python_coding
 
 * mac: "sys.executable" -m pip install --upgrade pkg
+* ensure package also runs in Jupyter notebook(kernel also inside the same virtual environment, inside virenv, do):
+    * pip install ipykernel
+    * ipython kernel install —-user —-name=custom_virenv_name
 * windows: pip install --target=path pkg
 * windows numpy installation problem: conda install -c anaconda numpy
 * when enconter module not found error in jupyter but module can be imported through commandline on windows:  
