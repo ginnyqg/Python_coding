@@ -1429,6 +1429,11 @@ schedule.every(10).minutes.do(myfunc)
 #module: file contain python code; can be executed or imported
 #class: python code
 
+		 
+#get stats summary for model
+import statsmodels.api as sm
+results = sm.OLS(y_train, x_train).fit()
+print(results.summary())
 
 
 
