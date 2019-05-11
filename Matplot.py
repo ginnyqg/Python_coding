@@ -223,7 +223,7 @@ plt.show()
 fig = plt.figure(figsize = (10, 8))
 corr = data.corr()
 sns.set(font_scale = 1.6)
-sns.heatmap(corr, annot = True, cmap = 'seismic')
+sns.heatmap(corr, annot = True, cmap = 'seismic', center = 0)
 plt.title('Heatmap of Correlation Matrix', fontsize = 25)
 
 
