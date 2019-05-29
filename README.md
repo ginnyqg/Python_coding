@@ -1,9 +1,9 @@
 # Python_coding
 
 * mac: "sys.executable" -m pip install --upgrade pkg
-* ensure package also runs in Jupyter notebook(kernel also inside the same virtual environment, inside virenv, do):
-    * pip install ipykernel
-    * ipython kernel install —-user —-name=custom_virenv_name
+* ensure package also runs in Jupyter notebook(kernel also inside the same virtual environment, other than in python):
+    * (pip install ipykernel)
+    * **ipython kernel install —-user —-name=custom_virenv_name**
     * go to jupyter, choose this kernel named after custom_virenv_name
 * windows: pip install --target=path pkg
 * windows numpy installation problem: conda install -c anaconda numpy
