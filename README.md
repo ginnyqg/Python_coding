@@ -13,3 +13,9 @@
 * show all virtual environments available: conda info --envs
 * create new virtual environment using conda: conda create -n custom_virenv_name
 * install pkgs with conda: conda install -n custom_virenv_name pkg_name
+* class variables are variables being shared with all instances(objects)
+
+
+
+
+
