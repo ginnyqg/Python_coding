@@ -173,6 +173,8 @@ set(arry)
 #return list with unique items from a list with duplicated items
 list(set(List_A))
 
+#sort list A in reverse
+A.sort(reverse = True)
 
 #find unique, sorted, no NaN value of a column in a dataframe
 uniq_sort_df = sorted(df['colname'].dropna().unique())
