@@ -4,7 +4,7 @@
 * ensure package also runs in Jupyter notebook(kernel also inside the same virtual environment, other than in python):
     * (pip install ipykernel)
     * **ipython kernel install —-user —-name=custom_virenv_name**
-    * go to jupyter, choose this kernel named after custom_virenv_name
+    * go to jupyter (top right corner), choose this kernel named after custom_virenv_name
 * windows: pip install --target=path pkg
 * windows numpy installation problem: conda install -c anaconda numpy
 * when enconter module not found error in jupyter but module can be imported through commandline on windows:  
