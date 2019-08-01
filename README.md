@@ -14,7 +14,11 @@
 * create new virtual environment using conda: conda create -n custom_virenv_name
 * install pkgs with conda: conda install -n custom_virenv_name pkg_name
 * class variables are variables being shared with all instances(objects)
-
+* install graphviz
+   * download and install on system
+   * install graphviz python package
+   * import os
+   * os.environ["PATH"] += os.pathsep + 'path where downloaded package is stored on system/bin'
 
 
 
