@@ -1,6 +1,11 @@
 # Python_coding
 
 * mac: "sys.executable" -m pip install --upgrade pkg
+* check virtual env version in commandline: virtualenv --version
+* create a virtual env: cd *my_project_folder*; virtualenv *my_project*
+* activate virtual env: source *my_project*/bin/activate
+* install packages in virtual env: pip install -U numpy scipy scikit-learn
+* deactivate
 * ensure package also runs in Jupyter notebook(kernel also inside the same virtual environment, other than in python):
     * (pip install ipykernel)
     * **ipython kernel install —-user —-name=custom_virenv_name**
