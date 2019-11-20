@@ -1444,11 +1444,15 @@ results = sm.OLS(y_train, x_train).fit()
 print(results.summary())
 
 
+#threading
+Run multiple threads (tasks, function calls) at the same time		 
+		 
+		 
 
-		 
-		 
-		 
-		 
+
+
+
+
 		 
 		 
 		 
