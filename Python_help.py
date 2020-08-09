@@ -648,8 +648,8 @@ print(plot_end)
           
 #find all timezones available in Python
 import pytz
-pytz.all_timezones
-          
+pytz.all_timezones	  
+df.index = df.index.tz_convert('US/Central')          
 
           
 #https://matplotlib.org/gallery/subplots_axes_and_figures/ganged_plots.html          
