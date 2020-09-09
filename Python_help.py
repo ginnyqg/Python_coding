@@ -1445,7 +1445,16 @@ print(results.summary())
 
 
 
-
+#create batch file to run script on windows
+cd path_where_python_script_is_saved
+#activate the virtual enconvrionment (aka conda activate vir_env_created)
+call C:\Users\laptopusername\AppData\Local\Continuum\anaconda3\Scripts\activate.bat vir_env_created
+#run script
+python python_script.py
+#save file with .bat		 
+		 
+		 
+		 
 
 
 
