@@ -1453,8 +1453,9 @@ call C:\Users\laptopusername\AppData\Local\Continuum\anaconda3\Scripts\activate.
 python python_script.py
 #save file with .bat		 
 		 
-		 
-		 
+
+#print with specified decimal places
+print('Value for {} at {} is: {:.4f} L'.format(a, b, c))		 
 
 
 
