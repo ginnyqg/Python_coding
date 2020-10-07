@@ -1455,7 +1455,7 @@ python python_script.py
 		 
 
 #print with specified decimal places
-print('Value for {} at {} is: {:.4f} L'.format(a, b, c))		 
+print('Value for {} at {} is: {:.{prec}f} L'.format(a, b, c, prec=4))		 
 
 
 
