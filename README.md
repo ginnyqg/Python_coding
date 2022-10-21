@@ -1,5 +1,6 @@
 # Python_coding
 
+* install pip, virtual env: https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
 * mac: "sys.executable" -m pip install --upgrade pkg
 * check virtual env version: virtualenv --version
 * create a virtual env: virtualenv *my_project*
