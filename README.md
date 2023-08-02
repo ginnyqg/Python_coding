@@ -3,11 +3,11 @@
 * install pip, virtual env: https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
 * mac: "sys.executable" -m pip install --upgrade pkg
 * check virtual env version: virtualenv --version
-* create a virtual env: virtualenv *my_project*,  python3 -m venv *my_project*
-* activate virtual env: source *my_project*/bin/activate
+* create a virtual env: virtualenv *my_project*; or `python3 -m venv *my_project*`
+* activate virtual env: `source *my_project*/bin/activate`
 * install packages in virtual env: pip install -U *numpy scipy scikit-learn*
 * install from `requirements.txt`: pip install -r requirements.txt
-* deactivate
+* `deactivate`
 * ensure package also runs in Jupyter notebook(kernel also inside the same virtual environment, other than in python):
     * (pip install ipykernel)
     * **ipython kernel install —-user —-name=custom_virenv_name**
